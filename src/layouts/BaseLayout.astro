@@ -9,7 +9,7 @@ import "@fontsource/inter/700.css";
 import "@fontsource/inter/800.css";
 // /font
 
-import { ViewTransitions } from "astro:transitions";
+// import { ViewTransitions } from "astro:transitions";
 import Header from "$lib/components/Header.svelte";
 import Footer from "$lib/components/Footer.astro";
 import LoadingIndicator from "astro-loading-indicator/component";
@@ -42,11 +42,12 @@ const { title, url } = Astro.props;
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <ViewTransitions />
+    
     <LoadingIndicator color="#0d6eff" height="2.5px" />
+    <!-- <ViewTransitions /> -->
   </head>
   <body>
-    <Header />
+    <Header client:visible />
     <slot />
     <Footer />
   </body>
