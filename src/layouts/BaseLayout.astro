@@ -47,7 +47,7 @@ const { title, url } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <Header client:visible />
+    <Header client:visible transition:name="header" />
     <slot />
     <Footer />
   </body>
