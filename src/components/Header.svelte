@@ -20,6 +20,9 @@
 
   const handleNav = () => {
     nav = !nav;
+    nav
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "auto");
   };
 
   onMount(() => {
@@ -197,7 +200,7 @@
 
         <div class="container">
           <button
-            class="w-full px-3 py-3 text-white rounded bg-zinc-800 dark:bg-zinc-700"
+            class="w-full px-3 py-3 text-white rounded bg-zinc-800"
             on:click={handleNav}
           >
             Close Menu
