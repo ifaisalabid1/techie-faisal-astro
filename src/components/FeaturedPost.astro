@@ -4,34 +4,32 @@ import { formatDate } from "$lib/functions.ts";
 const { featuredArticle } = Astro.props;
 ---
 
-<div>
-  <div class="flex gap-4 group">
-    <div class="w-[40%] overflow-hidden rounded-lg">
-      <a href={`/articles/${featuredArticle.slug}/`}>
-        <Picture
-          src={featuredArticle.data.image}
-          alt=""
-          class="rounded-lg transition group-hover:brightness-125"
-          formats={["avif", "webp"]}
-          widths={[375, 425, 540, 720, featuredArticle.data.image.width]}
-          sizes={` (max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 540px, (max-width: 1440px) 720px, ${featuredArticle.data.image.width}px`}
-        />
-      </a>
-    </div>
+<div class="flex gap-4 group">
+  <div class="w-[40%] overflow-hidden rounded-lg">
+    <a href={`/articles/${featuredArticle.slug}/`}>
+      <Picture
+        src={featuredArticle.data.image}
+        alt=""
+        class="rounded-lg transition group-hover:brightness-125"
+        formats={["avif", "webp"]}
+        widths={[375, 425, 540, 720, featuredArticle.data.image.width]}
+        sizes={` (max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 540px, (max-width: 1440px) 720px, ${featuredArticle.data.image.width}px`}
+      />
+    </a>
+  </div>
 
-    <div class="w-[60%]">
-      <div class="text-sm font-medium">
-        <span class="text-zinc-600">By</span>
-        {featuredArticle.data.author}
-        <span class="block text-zinc-600"
-          >{formatDate(featuredArticle.data.pubDate)}</span
-        >
-      </div>
-      <h2 class="font-semibold mt-2.5 hover:text-lightBlue transition">
-        <a href={`/articles/${featuredArticle.slug}/`}>
-          {featuredArticle.data.title}
-        </a>
-      </h2>
+  <div class="w-[60%]">
+    <div class="text-sm font-medium">
+      <span class="text-zinc-600">By</span>
+      {featuredArticle.data.author}
+      <span class="block text-zinc-600"
+        >{formatDate(featuredArticle.data.pubDate)}</span
+      >
     </div>
+    <h2 class="font-semibold mt-2.5 hover:text-lightBlue transition">
+      <a href={`/articles/${featuredArticle.slug}/`}>
+        {featuredArticle.data.title}
+      </a>
+    </h2>
   </div>
 </div>

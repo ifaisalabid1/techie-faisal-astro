@@ -12,20 +12,32 @@
   ];
 
   let nav = false;
+  let previousScrollY = 0;
+  let isScrollingUp = true;
+  let currentRoute: any;
 
   const handleNav = () => {
     nav = !nav;
   };
 
-  let currentRoute: any;
-
   onMount(() => {
     currentRoute = window.location.pathname;
+    window.addEventListener("scroll", handleScroll);
   });
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > previousScrollY && currentScrollY > 150) {
+      isScrollingUp = false;
+    } else if (currentScrollY < previousScrollY || currentScrollY <= 150) {
+      isScrollingUp = true;
+    }
+    previousScrollY = currentScrollY;
+  };
 </script>
 
 <header
-  class="bg-[hsla(0,100%,100%,0.9)] py-2 lg:py-4 sticky top-0 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full"
+  class={`bg-[hsla(0,100%,100%,0.9)] py-2 lg:py-4 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
 >
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
