@@ -1,0 +1,21 @@
+---
+import BaseLayout from "$lib/layouts/BaseLayout.astro";
+import Button from "$lib/components/Button.astro";
+---
+
+<BaseLayout>
+  <main
+    class="container mt-24 mb-16 lg:mt-40 xl:mt-56 xl:mb-40 md:mb-24 max-w-3xl text-center"
+  >
+    <h1 class="text-3xl font-bold md:text-5xl">Page Not Found</h1>
+    <p class="mt-6 md:text-lg">
+      The page you were looking for could not be found. It might have been
+      removed, renamed, or did not exist in the first place. Perhaps searching
+      can help.
+    </p>
+
+    <div class="mt-16">
+      <Button title=" Back to Home Page" link="/" />
+    </div>
+  </main>
+</BaseLayout>

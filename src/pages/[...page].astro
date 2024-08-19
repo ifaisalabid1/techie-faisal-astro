@@ -1,0 +1,149 @@
+---
+import BaseLayout from "$lib/layouts/BaseLayout.astro";
+import About from "$lib/components/About.astro";
+import FeaturedPost from "$lib/components/FeaturedPost.astro";
+import ContactCard from "$lib/components/ContactCard.astro";
+import ArticleCard from "$lib/components/ArticleCard.astro";
+
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const allFeaturedArticles: CollectionEntry<"featuredArticles">[] = (
+  await getCollection("featuredArticles")
+).sort(
+  (
+    a: CollectionEntry<"featuredArticles">,
+    b: CollectionEntry<"featuredArticles">
+  ) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+export async function getStaticPaths({ paginate }: any) {
+  const allArticles: CollectionEntry<"articles">[] = (
+    await getCollection("articles")
+  ).sort(
+    (a: CollectionEntry<"articles">, b: CollectionEntry<"articles">) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  return paginate(allArticles, { pageSize: 12 });
+}
+
+const { page }: any = Astro.props;
+---
+
+<BaseLayout>
+  <main class="container mt-12 lg:mt-16 mb-16 md:mb-24">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+      <!-- article card -->
+      <section class="lg:col-span-2">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6">
+          {page.data.map((article: any) => <ArticleCard article={article} />)}
+        </div>
+        <!-- /article card -->
+
+        <!-- paginator -->
+        <div
+          class="flex items-center justify-between space-x-10 mx-auto mt-16 md:mt-20 lg:mt-24"
+        >
+          <a
+            href={page.url.prev}
+            class={!page.url.prev
+              ? "flex items-center gap-1 cursor-not-allowed font-medium"
+              : "flex items-center gap-1 hover:text-lightBlue transition font-medium"}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z"
+              ></path>
+            </svg>
+            Newer Posts
+          </a>
+
+          <div class="hidden md:block text-zinc-800">
+            Page
+            {page.currentPage}
+            of
+            {page.lastPage}
+          </div>
+
+          <a
+            href={page.url.next}
+            class={!page.url.next
+              ? "flex items-center gap-1 cursor-not-allowed font-medium"
+              : "flex items-center gap-1 hover:text-lightBlue transition font-medium"}
+          >
+            Older Posts
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+        <!-- /paginator -->
+      </section>
+
+      <!-- sidebar -->
+      <aside
+        class="md:grid md:grid-cols-2 md:gap-10 lg:col-span-1 lg:grid-cols-1 h-fit"
+      >
+        <div>
+          <About />
+          <hr class="mt-10" />
+
+          <section class="mt-10">
+            <h2 class="text-xl font-bold">Featured Posts</h2>
+
+            <div class="mt-8 grid grid-cols-1 gap-8">
+              {
+                allFeaturedArticles
+                  .slice(0, 5)
+                  .map((featuredArticle) => (
+                    <FeaturedPost featuredArticle={featuredArticle} />
+                  ))
+              }
+            </div>
+          </section>
+          <hr class="mt-10 md:max-lg:hidden" />
+        </div>
+
+        <section class="mt-10 md:mt-2">
+          <ContactCard />
+        </section>
+      </aside>
+      <!-- /sidebar -->
+    </div>
+  </main>
+
+ 
+  <script>
+    declare global {
+      interface Window {
+        netlifyIdentity: any
+      }
+    }
+
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user: any) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/maintainer/";
+        });
+      }
+    });
+  }
+</script>
+</BaseLayout>
+
+

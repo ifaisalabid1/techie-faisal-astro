@@ -1,0 +1,14 @@
+---
+import { capitalize } from "$lib/functions.ts";
+const { tags } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-2">
+  {
+    tags.map((tag: string) => (
+      <span class="text-zinc-600 bg-zinc-100 hover:bg-zinc-200 transition py-1.5 px-3 rounded font-medium text-sm">
+        <a href={`/articles/category/${tag}/`}>#{capitalize(tag)}</a>
+      </span>
+    ))
+  }
+</div>

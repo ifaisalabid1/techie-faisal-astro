@@ -1,0 +1,52 @@
+---
+const { page } = Astro.props;
+---
+
+<section class="flex items-center justify-between space-x-10 max-w-3xl mx-auto">
+  <a
+    href={page.url.prev}
+    class={!page.url.prev
+      ? "flex items-center gap-1 cursor-not-allowed font-medium"
+      : "flex items-center gap-1 hover:text-lightBlue transition font-medium"}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z"
+      ></path>
+    </svg>
+    Newer Posts
+  </a>
+
+  <div class="hidden md:block text-zinc-800">
+    Page
+    {page.currentPage}
+    of
+    {page.lastPage}
+  </div>
+
+  <a
+    href={page.url.next}
+    class={!page.url.next
+      ? "flex items-center gap-1 cursor-not-allowed font-medium"
+      : "flex items-center gap-1 hover:text-lightBlue transition font-medium"}
+  >
+    Older Posts
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
+      ></path>
+    </svg>
+  </a>
+</section>

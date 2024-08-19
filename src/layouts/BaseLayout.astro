@@ -1,0 +1,53 @@
+---
+import "$lib/styles/app.css";
+
+// font
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/800.css";
+// /font
+
+import { ViewTransitions } from "astro:transitions";
+import Header from "$lib/components/Header.svelte";
+import Footer from "$lib/components/Footer.astro";
+import LoadingIndicator from "astro-loading-indicator/component";
+
+const { title, url } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="language" content="English" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="cache-control" content="public" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta name="contact" content="email id" />
+    <meta name="copyright" content="company name" />
+    <meta name="reply-to" content="email id" />
+    <meta name="web_author" content="company name" />
+
+    <meta name="description" content="" />
+    <meta name="og:title" content={`${title} | So Much Tech`} />
+    <meta name="og:description" content="" />
+
+    <link rel="icon" type="image/svg+xml" href="#" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | So Much Tech</title>
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <ViewTransitions />
+    <LoadingIndicator color="#0d6eff" height="2.5px" />
+  </head>
+  <body>
+    <Header client:visible />
+    <slot />
+    <Footer />
+  </body>
+</html>

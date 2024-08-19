@@ -1,0 +1,58 @@
+---
+import BaseLayout from "$lib/layouts/BaseLayout.astro";
+import ArticleCard from "$lib/components/ArticleCard.astro";
+import Paginator from "$lib/components/Paginator.astro";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "$lib/components/ui/breadcrumb";
+
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths({ paginate }: any) {
+  const allArticles: CollectionEntry<"articles">[] = (
+    await getCollection("articles")
+  ).sort(
+    (a: CollectionEntry<"articles">, b: CollectionEntry<"articles">) =>
+      b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  return paginate(allArticles, { pageSize: 15 });
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout>
+  <main class="container mt-8 mb-16 md:mb-24">
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Articles</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+
+    <h1 class="text-4xl font-bold mt-8 xl:mt-12">All Articles</h1>
+    <div
+      class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6 mt-10"
+    >
+      {
+        (page as any).data.map((article: any) => (
+          <ArticleCard article={article} />
+        ))
+      }
+    </div>
+
+    <div class="mt-16 md:mt-20 lg:mt-24">
+      <Paginator page={page} />
+    </div>
+  </main>
+</BaseLayout>

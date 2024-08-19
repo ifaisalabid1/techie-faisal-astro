@@ -1,0 +1,222 @@
+---
+import BaseLayout from "$lib/layouts/BaseLayout.astro";
+import { getCollection, type CollectionEntry, getEntries } from "astro:content";
+import Tag from "$lib/components/Tag.astro";
+import { formatDate } from "$lib/functions.ts";
+import { Picture } from "astro:assets";
+import About from "$lib/components/About.astro";
+import ContactCard from "$lib/components/ContactCard.astro";
+import FeaturedPost from "$lib/components/FeaturedPost.astro";
+import ArticleCard from "$lib/components/ArticleCard.astro";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "$lib/components/ui/breadcrumb";
+
+const allFeaturedArticles: CollectionEntry<"featuredArticles">[] = (
+  await getCollection("featuredArticles")
+).sort(
+  (
+    a: CollectionEntry<"featuredArticles">,
+    b: CollectionEntry<"featuredArticles">
+  ) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+export async function getStaticPaths() {
+  const allArticles = await getCollection("articles");
+  return allArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+const relatedArticles = article.data.relatedArticles
+  ? await getEntries(article.data.relatedArticles)
+  : [];
+---
+
+<BaseLayout>
+  <main class="container mt-8 mb-16 md:mb-24">
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">Home</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/articles/">Articles</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>{article.data.title}</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+
+    <h1 class="mb-3 font-extrabold text-4xl mt-6">{article.data.title}</h1>
+
+    <div class="mt-4">
+      <Tag tags={article.data.tags} />
+    </div>
+
+    <div class="flex gap-2 items-center my-6">
+      <div
+        class="relative w-10 h-10 overflow-hidden bg-zinc-100  rounded-full"
+      >
+        <svg
+          class="absolute w-12 h-12 text-zinc-400 -left-1"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+            clip-rule="evenodd"></path></svg
+        >
+      </div>
+
+      <span class="grid grid-cols-1 text-sm text-zinc-800">
+        <span class="font-semibold">
+          {article.data.author}
+        </span>
+        <span class="font-semibold">
+          Updated <span
+            class="text-zinc-500 mt-1 md:mt-0 pubDate"
+            >{formatDate(article.data.pubDate)}</span
+          >
+        </span>
+      </span>
+    </div>
+
+    <section class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+      <article
+        class:list={[
+          "lg:col-span-2",
+          "prose",
+          "max-w-none",
+          "prose-img:rounded-lg",
+          "prose-lg",
+          { "border-b pb-12": relatedArticles.length > 0 },
+        ]}
+      >
+        <Picture
+          src={article.data.image}
+          alt=""
+          formats={["avif", "webp"]}
+          widths={[375, 425, 768, 1024, article.data.image.width]}
+          sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 768px, (max-width: 1440px) 1024px ${article.data.image.width}px`}
+        />
+        <Content />
+        <!-- /content -->
+
+        <div class="font-semibold text-base mt-16">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span>By</span>
+
+            <div
+              class="relative w-10 h-10 overflow-hidden bg-zinc-100  rounded-full"
+            >
+              <svg
+                class="absolute w-12 h-12 text-zinc-400 -left-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  fill-rule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clip-rule="evenodd"></path></svg
+              >
+            </div>
+
+            <span>{article.data.author}</span>
+            <span class="pubDate md:-ml-2 text-zinc-500"
+              >Update {formatDate(article.data.pubDate)}</span
+            >
+          </div>
+        </div>
+      </article>
+
+      {
+        relatedArticles.length > 0 && (
+          <section class="lg:mt-14 lg:hidden border-b pb-10">
+            <h2 class="font-extrabold text-4xl">Read Next</h2>
+
+            <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6">
+              {relatedArticles.slice(0, 5).map((relatedArticle) => (
+                <ArticleCard article={relatedArticle} />
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <!-- sidebar -->
+      <aside
+        class="md:grid md:grid-cols-2 md:gap-10 lg:col-span-1 lg:grid-cols-1 h-fit"
+      >
+        <div>
+          <About />
+          <hr class="mt-10" />
+
+          <section class="mt-10">
+            <h2 class="text-xl font-bold">Featured Posts</h2>
+
+            <div class="mt-8 grid grid-cols-1 gap-8">
+              {
+                allFeaturedArticles
+                  .slice(0, 5)
+                  .map((featuredArticle) => (
+                    <FeaturedPost featuredArticle={featuredArticle} />
+                  ))
+              }
+            </div>
+          </section>
+          <hr class="mt-10 md:max-lg:hidden" />
+        </div>
+
+        <section class="mt-10 md:mt-2">
+          <ContactCard />
+        </section>
+      </aside>
+      <!-- /sidebar -->
+    </section>
+
+    {
+      relatedArticles.length > 0 && (
+        <section class="mt-14 hidden lg:block">
+          <h2 class="font-extrabold text-4xl">Read Next</h2>
+
+          <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-x-6">
+            {relatedArticles.slice(0, 5).map((relatedArticle) => (
+              <ArticleCard article={relatedArticle} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </main>
+
+  <style>
+    @media screen and (min-width: 768px) {
+      .pubDate::before {
+        display: inline-flex;
+        position: relative;
+        content: "";
+        width: 0.3125rem;
+        height: 0.3125rem;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+        border-radius: 50%;
+        background-color: #a1a1aa;
+        bottom: 2px;
+      }
+    }
+  </style>
+</BaseLayout>
