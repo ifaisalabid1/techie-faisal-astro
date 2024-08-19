@@ -90,7 +90,9 @@
       <div>
         <button on:click={handleNav} class="cursor-pointer">
           <span class="text-4xl">
-            <Icon icon="material-symbols:menu" />
+            <Icon
+              icon={nav ? "material-symbols:close" : "material-symbols:menu"}
+            />
           </span>
         </button>
       </div>
