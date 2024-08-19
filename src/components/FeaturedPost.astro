@@ -20,9 +20,9 @@ const { featuredArticle } = Astro.props;
 
   <div class="w-[60%]">
     <div class="text-sm font-medium">
-      <span class="text-zinc-600">By</span>
+      <span class="text-zinc-600 dark:text-muted-foreground">By</span>
       {featuredArticle.data.author}
-      <span class="block text-zinc-600"
+      <span class="block text-zinc-600 dark:text-muted-foreground"
         >{formatDate(featuredArticle.data.pubDate)}</span
       >
     </div>

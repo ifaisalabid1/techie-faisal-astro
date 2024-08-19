@@ -68,7 +68,7 @@ const relatedArticles = article.data.relatedArticles
 
     <div class="flex gap-2 items-center my-6">
       <div
-        class="relative w-10 h-10 overflow-hidden bg-zinc-100  rounded-full"
+        class="relative w-10 h-10 overflow-hidden bg-zinc-100 dark:bg-zinc-900 rounded-full"
       >
         <svg
           class="absolute w-12 h-12 text-zinc-400 -left-1"
@@ -82,13 +82,13 @@ const relatedArticles = article.data.relatedArticles
         >
       </div>
 
-      <span class="grid grid-cols-1 text-sm text-zinc-800">
+      <span class="grid grid-cols-1 text-sm text-zinc-800 dark:text-foreground">
         <span class="font-semibold">
           {article.data.author}
         </span>
         <span class="font-semibold">
           Updated <span
-            class="text-zinc-500 mt-1 md:mt-0 pubDate"
+            class="text-zinc-500 dark:text-muted-foreground mt-1 md:mt-0 pubDate"
             >{formatDate(article.data.pubDate)}</span
           >
         </span>
@@ -103,6 +103,8 @@ const relatedArticles = article.data.relatedArticles
           "max-w-none",
           "prose-img:rounded-lg",
           "prose-lg",
+          "dark:prose-zinc",
+          "dark:prose-invert",
           { "border-b pb-12": relatedArticles.length > 0 },
         ]}
       >
@@ -118,10 +120,10 @@ const relatedArticles = article.data.relatedArticles
 
         <div class="font-semibold text-base mt-16">
           <div class="flex items-center gap-2 flex-wrap">
-            <span>By</span>
+            <span class="dark:text-muted-foreground">By</span>
 
             <div
-              class="relative w-10 h-10 overflow-hidden bg-zinc-100  rounded-full"
+              class="relative w-10 h-10 overflow-hidden bg-zinc-100 dark:bg-zinc-900 rounded-full"
             >
               <svg
                 class="absolute w-12 h-12 text-zinc-400 -left-1"
@@ -135,8 +137,8 @@ const relatedArticles = article.data.relatedArticles
               >
             </div>
 
-            <span>{article.data.author}</span>
-            <span class="pubDate md:-ml-2 text-zinc-500"
+            <span class="dark:text-foreground">{article.data.author}</span>
+            <span class="pubDate md:-ml-2 text-zinc-500 dark:text-muted-foreground"
               >Update {formatDate(article.data.pubDate)}</span
             >
           </div>
