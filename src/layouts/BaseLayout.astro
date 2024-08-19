@@ -44,10 +44,10 @@ const { title, url } = Astro.props;
 
     
     <LoadingIndicator color="#0d6eff" height="2.5px" />
-    <ViewTransitions />
   </head>
   <body>
-    <Header client:visible transition:name="header" />
+    <Header client:visible />
+    <ViewTransitions />
     <slot />
     <Footer />
   </body>
