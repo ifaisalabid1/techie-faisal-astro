@@ -105,7 +105,9 @@
         <a href="/">My Blog</a>
       </div>
 
-      <div>
+      <div class="flex items-center gap-2">
+        <ThemeToggle />
+
         <button on:click={handleNav} class="cursor-pointer">
           <span class="text-4xl">
             <Icon
@@ -128,7 +130,9 @@
             <a href="/">My Blog</a>
           </div>
 
-          <div>
+          <div class="flex items-center gap-2">
+            <ThemeToggle />
+
             <button on:click={handleNav} class="cursor-pointer">
               <span class="text-4xl">
                 <Icon icon="material-symbols:close" />
