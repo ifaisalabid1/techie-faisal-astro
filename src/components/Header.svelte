@@ -94,7 +94,7 @@
         </a>
       </li>
       <li>
-        <ModeWatcher track={false} />
+        <ModeWatcher />
         <ModeToggle />
       </li>
     </ul>
