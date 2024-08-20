@@ -152,7 +152,7 @@
                 class={`flex items-center justify-between gap-4 px-3 py-3 rounded ${
                   currentRoute === item.link
                     ? "bg-lightBlue text-white"
-                    : "bg-zinc-100 dark:bg-slate-800"
+                    : "bg-zinc-100 dark:bg-slate-950"
                 }`}
                 on:click={handleNav}
               >
@@ -200,7 +200,7 @@
 
         <div class="container">
           <button
-            class="w-full px-3 py-3 text-white rounded bg-zinc-800"
+            class="w-full px-3 py-3 text-white rounded bg-zinc-800 dark:bg-slate-800"
             on:click={handleNav}
           >
             Close Menu
