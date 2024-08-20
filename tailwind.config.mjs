@@ -59,7 +59,7 @@ const config = {
       },
 
       fontFamily: {
-        openSans: ["Open Sans", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },
