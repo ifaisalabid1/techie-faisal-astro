@@ -17,7 +17,7 @@ import LoadingIndicator from "astro-loading-indicator/component";
 const { title, url } = Astro.props;
 ---
 
-<script is:inline>
+<!-- <script is:inline>
   const isBrowser = typeof localStorage !== 'undefined';
   const getThemePreference = () => {
     if (isBrowser && localStorage.getItem('theme')) {
@@ -39,7 +39,7 @@ const { title, url } = Astro.props;
       attributeFilter: ['class']
     });
   }
-</script>
+</script> -->
 
 <html lang="en">
   <head>
@@ -70,7 +70,7 @@ const { title, url } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <Header client:load />
+    <Header client:visible />
     <slot />
     <Footer />
   </body>
