@@ -2,7 +2,7 @@
   import Icon from "@iconify/svelte";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
-  import ThemeToggle from "$lib/components/ThemeToggle.svelte";
+  import ModeToggle from "$lib/components/ModeToggle.svelte";
   import { ModeWatcher } from "mode-watcher";
 
   const navItems = [
@@ -94,8 +94,8 @@
         </a>
       </li>
       <li>
-        <ModeWatcher />
-        <ThemeToggle />
+        <ModeWatcher track={false} />
+        <ModeToggle />
       </li>
     </ul>
   </nav>
@@ -109,7 +109,7 @@
       </div>
 
       <div class="flex items-center gap-2">
-        <ThemeToggle />
+        <ModeToggle />
 
         <button on:click={handleNav} class="cursor-pointer">
           <span class="text-4xl">
@@ -134,7 +134,7 @@
           </div>
 
           <div class="flex items-center gap-2">
-            <ThemeToggle />
+            <ModeToggle />
 
             <button on:click={handleNav} class="cursor-pointer">
               <span class="text-4xl">
