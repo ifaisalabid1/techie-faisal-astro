@@ -20,10 +20,10 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.14.2(rollup@4.21.0)(typescript@5.5.4))(tailwindcss@3.4.10)
-      '@fontsource-variable/lora':
-        specifier: ^5.0.19
-        version: 5.0.19
       '@fontsource/inter':
+        specifier: ^5.0.20
+        version: 5.0.20
+      '@fontsource/noto-serif':
         specifier: ^5.0.20
         version: 5.0.20
       astro:
@@ -397,11 +397,11 @@ packages:
   '@floating-ui/utils@0.2.7':
     resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
 
-  '@fontsource-variable/lora@5.0.19':
-    resolution: {integrity: sha512-Nbg+iCCtdQrtvOI1GSwj8BuGTiPu8iY5KOVcUnHqLPoHy7o7/qzgSMaH9nfH9Mka+qxRzCn9+EdJbeTeFDajSQ==}
-
   '@fontsource/inter@5.0.20':
     resolution: {integrity: sha512-rtw2F7xfM7rJmmnncXnR4ADr5wXsp4GyN1O1jmQJ1PMjAK+bm620/ZkQkeOYOkGoa09OksGinOeMA+Mkt6K9PQ==}
+
+  '@fontsource/noto-serif@5.0.20':
+    resolution: {integrity: sha512-vVqN/tDbsXaCfj9INbOzpJGQtBCcVuv6KhyPbRdTcbw5VJNDrPvxr1yayugqKo8OpxZy4//UHA2g9st+feOdtA==}
 
   '@iconify/svelte@4.0.2':
     resolution: {integrity: sha512-6BSrU85FzGfhQD3bTXpnkCCvBAglEt8T9QednVnXAYm4C+d3464y+pYMzhQNJm5mPId2cuiw+2wXlDflXllHDw==}
@@ -2714,9 +2714,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.7': {}
 
-  '@fontsource-variable/lora@5.0.19': {}
-
   '@fontsource/inter@5.0.20': {}
+
+  '@fontsource/noto-serif@5.0.20': {}
 
   '@iconify/svelte@4.0.2(svelte@4.2.18)':
     dependencies:

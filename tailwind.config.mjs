@@ -60,7 +60,7 @@ const config = {
 
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        lora: ["Lora Variable", "serif"],
+        notoSerif: ["Noto Serif", "serif"],
       },
     },
   },
