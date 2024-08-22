@@ -60,7 +60,7 @@ const config = {
 
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        notoSerif: ["Noto Serif", "serif"],
+        robotoSerif: ["Roboto Serif", "serif"],
       },
     },
   },
