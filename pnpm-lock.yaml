@@ -20,12 +20,12 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.14.2(rollup@4.21.0)(typescript@5.5.4))(tailwindcss@3.4.10)
-      '@fontsource-variable/lora':
-        specifier: ^5.0.19
-        version: 5.0.19
       '@fontsource/inter':
         specifier: ^5.0.20
         version: 5.0.20
+      '@fontsource/merriweather':
+        specifier: ^5.0.14
+        version: 5.0.14
       astro:
         specifier: ^4.14.2
         version: 4.14.2(rollup@4.21.0)(typescript@5.5.4)
@@ -41,6 +41,9 @@ importers:
       lucide-svelte:
         specifier: ^0.428.0
         version: 0.428.0(svelte@4.2.18)
+      mode-watcher:
+        specifier: ^0.4.1
+        version: 0.4.1(svelte@4.2.18)
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -394,11 +397,11 @@ packages:
   '@floating-ui/utils@0.2.7':
     resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
 
-  '@fontsource-variable/lora@5.0.19':
-    resolution: {integrity: sha512-Nbg+iCCtdQrtvOI1GSwj8BuGTiPu8iY5KOVcUnHqLPoHy7o7/qzgSMaH9nfH9Mka+qxRzCn9+EdJbeTeFDajSQ==}
-
   '@fontsource/inter@5.0.20':
     resolution: {integrity: sha512-rtw2F7xfM7rJmmnncXnR4ADr5wXsp4GyN1O1jmQJ1PMjAK+bm620/ZkQkeOYOkGoa09OksGinOeMA+Mkt6K9PQ==}
+
+  '@fontsource/merriweather@5.0.14':
+    resolution: {integrity: sha512-fdlH6iHzbrxdS/e2GbDHNtBSH7HXn2fz5f4uyCZjC4tPmMMTV9xM3RMplrRUegWQ7OD0XDuhXhnO5lSZo+9h+A==}
 
   '@iconify/svelte@4.0.2':
     resolution: {integrity: sha512-6BSrU85FzGfhQD3bTXpnkCCvBAglEt8T9QednVnXAYm4C+d3464y+pYMzhQNJm5mPId2cuiw+2wXlDflXllHDw==}
@@ -1566,6 +1569,11 @@ packages:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
 
+  mode-watcher@0.4.1:
+    resolution: {integrity: sha512-bNC+1NXmwEFZtziCdZSgP7HFQTpqJPcQn9GwwJQGSf6SBF3neEPYV1uRwkYuAQwbsvsXIYtzaqgedDzJ7D1mhg==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0-next.1
+
   mrmime@2.0.0:
     resolution: {integrity: sha512-eu38+hdgojoyq63s+yTpN4XMBdt5l8HhMhc4VKLO9KM5caLIBvUm4thi7fFaxyTmCKeNnXZ5pAlBwCUnhA09uw==}
     engines: {node: '>=10'}
@@ -2706,9 +2714,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.7': {}
 
-  '@fontsource-variable/lora@5.0.19': {}
-
   '@fontsource/inter@5.0.20': {}
+
+  '@fontsource/merriweather@5.0.14': {}
 
   '@iconify/svelte@4.0.2(svelte@4.2.18)':
     dependencies:
@@ -4113,6 +4121,10 @@ snapshots:
       brace-expansion: 2.0.1
 
   minipass@7.1.2: {}
+
+  mode-watcher@0.4.1(svelte@4.2.18):
+    dependencies:
+      svelte: 4.2.18
 
   mrmime@2.0.0: {}
 
