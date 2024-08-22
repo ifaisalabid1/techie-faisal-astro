@@ -2,8 +2,6 @@
   import Icon from "@iconify/svelte";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
-  import { ModeWatcher } from "mode-watcher";
-  import ModeToggle from "$lib/components/ModeToggle.svelte";
 
   const navItems = [
     { id: 1, text: "Home", link: "/" },
@@ -93,10 +91,6 @@
           </span>
         </a>
       </li>
-      <li>
-        <ModeWatcher />
-        <ModeToggle />
-      </li>
     </ul>
   </nav>
   <!-- /desktop nav  -->
@@ -108,9 +102,7 @@
         <a href="/">My Blog</a>
       </div>
 
-      <div class="flex items-center gap-2">
-        <ModeToggle />
-
+      <div>
         <button on:click={handleNav} class="cursor-pointer">
           <span class="text-4xl">
             <Icon
@@ -133,9 +125,7 @@
             <a href="/">My Blog</a>
           </div>
 
-          <div class="flex items-center gap-2">
-            <ModeToggle />
-
+          <div>
             <button on:click={handleNav} class="cursor-pointer">
               <span class="text-4xl">
                 <Icon icon="material-symbols:close" />

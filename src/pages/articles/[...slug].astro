@@ -99,6 +99,7 @@ const relatedArticles = article.data.relatedArticles
       <article
         class:list={[
           "lg:col-span-2",
+          "font-lora",
           "prose",
           "max-w-none",
           "prose-img:rounded-lg",
@@ -106,6 +107,7 @@ const relatedArticles = article.data.relatedArticles
           "prose-zinc",
           "prose-a:hover:text-lightBlue",
           "prose-headings:text-foreground",
+          "prose-headings:font-inter",
           "prose-p:text-foreground",
           "prose-blockquote:text-foreground",
           "prose-strong:text-foreground",
@@ -119,20 +121,20 @@ const relatedArticles = article.data.relatedArticles
           "prose-table:text-foreground",
           "prose-thead:text-foreground",
           "prose-th:text-foreground",
-          "dark:prose-p:text-zinc-100",
-          "dark:prose-blockquote:text-zinc-100",
-          "dark:prose-strong:text-zinc-100",
-          "dark:prose-em:text-zinc-100",
-          "dark:prose-kbd:text-zinc-100",
-          "dark:prose-code:text-zinc-100",
-          "dark:prose-pre:text-zinc-100",
-          "dark:prose-ol:text-zinc-100",
-          "dark:prose-ul:text-zinc-100",
-          "dark:prose-li:text-zinc-100",
-          "dark:prose-table:text-zinc-100",
-          "dark:prose-thead:text-zinc-100",
-          "dark:prose-th:text-zinc-100",
           "dark:prose-invert",
+          "dark:prose-p:text-zinc-200",
+          "dark:prose-blockquote:text-zinc-200",
+          "dark:prose-strong:text-zinc-200",
+          "dark:prose-em:text-zinc-200",
+          "dark:prose-kbd:text-zinc-200",
+          "dark:prose-code:text-zinc-200",
+          "dark:prose-pre:text-zinc-200",
+          "dark:prose-ol:text-zinc-200",
+          "dark:prose-ul:text-zinc-200",
+          "dark:prose-li:text-zinc-200",
+          "dark:prose-table:text-zinc-200",
+          "dark:prose-thead:text-zinc-200",
+          "dark:prose-th:text-zinc-200",
           "dark:prose-a:hover:text-lightBlue",
           { "border-b pb-12": relatedArticles.length > 0 },
         ]}
@@ -147,7 +149,7 @@ const relatedArticles = article.data.relatedArticles
         <Content />
         <!-- /content -->
 
-        <div class="font-semibold text-base mt-16">
+        <div class="font-semibold text-base mt-16 font-inter">
           <div class="flex items-center gap-2 flex-wrap">
             <span class="dark:text-muted-foreground">By</span>
 
