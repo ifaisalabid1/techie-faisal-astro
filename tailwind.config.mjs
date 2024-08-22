@@ -60,7 +60,7 @@ const config = {
 
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        robotoSerif: ["Roboto Serif", "serif"],
+        merriweather: ["Merriweather", "serif"],
       },
     },
   },
