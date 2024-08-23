@@ -60,7 +60,6 @@ const config = {
 
       fontFamily: {
         inter: ["Inter", "sans-serif"],
-        merriweather: ["Merriweather", "serif"],
       },
     },
   },
