@@ -42,7 +42,7 @@
 </script>
 
 <header
-  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-slate-950 py-2 lg:py-4 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
+  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-slate-900 py-2 lg:py-4 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
 >
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
@@ -123,7 +123,7 @@
 
     {#if nav}
       <div
-        class="flex flex-col w-full gap-2 pb-8 pt-2 absolute font-medium top-0 bg-white dark:bg-slate-950 h-screen"
+        class="flex flex-col w-full gap-2 pb-8 pt-2 absolute font-medium top-0 bg-white dark:bg-slate-900 h-screen"
         transition:fly
       >
         <div
@@ -152,7 +152,7 @@
                 class={`flex items-center justify-between gap-4 px-3 py-3 rounded ${
                   currentRoute === item.link
                     ? "bg-lightBlue text-white"
-                    : "bg-zinc-100 dark:bg-slate-900"
+                    : "bg-zinc-100 dark:bg-slate-800"
                 }`}
                 on:click={handleNav}
               >
@@ -200,7 +200,7 @@
 
         <div class="container">
           <button
-            class="w-full px-3 py-3 text-white rounded bg-zinc-800 dark:bg-slate-900"
+            class="w-full px-3 py-3 text-white rounded bg-zinc-800 dark:bg-slate-800"
             on:click={handleNav}
           >
             Close Menu
