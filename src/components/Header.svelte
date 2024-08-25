@@ -42,7 +42,7 @@
 </script>
 
 <header
-  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-zinc-900 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
+  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-[hsla(240,10%,3.9%,0.9)] backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
 >
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
@@ -126,7 +126,7 @@
 
     {#if nav}
       <div
-        class="flex flex-col w-full gap-2 justify-between pb-8 absolute font-medium top-0 bg-white dark:bg-zinc-900 h-[100dvh]"
+        class="flex flex-col w-full gap-2 justify-between pb-8 absolute font-medium top-0 bg-white dark:bg-zinc-950 h-[100dvh]"
         transition:fly={{ duration: 300 }}
       >
         <div class="flex flex-col gap-2">
@@ -156,7 +156,7 @@
                   class={`flex items-center justify-between gap-4 px-3 py-3 rounded ${
                     currentRoute === item.link
                       ? "bg-lightBlue text-white"
-                      : "bg-zinc-100 dark:bg-zinc-800"
+                      : "bg-zinc-100 dark:bg-zinc-900"
                   }`}
                 >
                   {item.text}
