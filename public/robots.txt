@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://somuchtech.netlify.app/sitemap-index.xml
+Sitemap: https://techiefaisal.com/sitemap-index.xml

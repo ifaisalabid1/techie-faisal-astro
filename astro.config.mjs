@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://somuchtech.netlify.app/",
+  site: "https://techiefaisal.com/",
   trailingSlash: "always",
   prefetch: {
     defaultStrategy: "viewport",
