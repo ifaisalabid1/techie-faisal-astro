@@ -126,89 +126,98 @@
 
     {#if nav}
       <div
-        class="flex flex-col w-full gap-2 pb-8 absolute font-medium top-0 bg-white dark:bg-zinc-900 h-screen"
+        class="flex flex-col w-full gap-2 justify-between pb-8 absolute font-medium top-0 bg-white dark:bg-zinc-900 h-[100dvh]"
         transition:fly
       >
-        <div
-          class="container flex items-center justify-between gap-6 border-b pb-2 shadow"
-        >
-          <div class="text-xl font-bold">
-            <a href="/"
-              ><img src="/img/logo.png" alt="" width={55} height={55} /></a
-            >
+        <div class="flex flex-col gap-2">
+          <div
+            class="container flex items-center justify-between gap-6 border-b pb-2 shadow"
+          >
+            <div class="text-xl font-bold">
+              <a href="/"
+                ><img src="/img/logo.png" alt="" width={55} height={55} /></a
+              >
+            </div>
+
+            <div class="flex gap-2 items-center">
+              <ModeToggle />
+
+              <button on:click={handleNav} class="cursor-pointer">
+                <span class="text-4xl">
+                  <Icon icon="material-symbols:close" />
+                </span>
+              </button>
+            </div>
           </div>
 
-          <div class="flex gap-2 items-center">
+          <ul class="container">
+            {#each navItems as item (item.id)}
+              <li class="py-2">
+                <a
+                  href={item.link}
+                  class={`flex items-center justify-between gap-4 px-3 py-3 rounded ${
+                    currentRoute === item.link
+                      ? "bg-lightBlue text-white"
+                      : "bg-zinc-100 dark:bg-zinc-800"
+                  }`}
+                >
+                  {item.text}
+                  <span class="text-2xl">
+                    <Icon icon="material-symbols:chevron-right" />
+                  </span>
+                </a>
+              </li>
+            {/each}
+          </ul>
+        </div>
+
+        <div
+          class="flex justify-between gap-2 items-center container border-t pt-2"
+        >
+          <ul class="flex gap-2.5 items-center flex-wrap my-4">
+            <li>
+              <a href="">
+                <span class="text-3xl">
+                  <Icon icon="ic:baseline-facebook" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="text-3xl">
+                  <Icon icon="ri:twitter-x-fill" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="text-3xl">
+                  <Icon icon="ri:instagram-fill" />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span class="text-3xl">
+                  <Icon icon="ic:baseline-reddit" />
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="flex items-center gap-2">
             <ModeToggle />
 
             <button on:click={handleNav} class="cursor-pointer">
               <span class="text-4xl">
-                <Icon icon="material-symbols:close" />
+                <Icon
+                  icon={nav
+                    ? "material-symbols:close"
+                    : "material-symbols:menu"}
+                />
               </span>
             </button>
           </div>
-        </div>
-
-        <ul class="container">
-          {#each navItems as item (item.id)}
-            <li class="py-2">
-              <a
-                href={item.link}
-                class={`flex items-center justify-between gap-4 px-3 py-3 rounded ${
-                  currentRoute === item.link
-                    ? "bg-lightBlue text-white"
-                    : "bg-zinc-100 dark:bg-zinc-800"
-                }`}
-              >
-                {item.text}
-                <span class="text-2xl">
-                  <Icon icon="material-symbols:chevron-right" />
-                </span>
-              </a>
-            </li>
-          {/each}
-
-          <li>
-            <ul class="flex gap-2.5 items-center flex-wrap my-4 justify-center">
-              <li>
-                <a href="">
-                  <span class="text-4xl">
-                    <Icon icon="ic:baseline-facebook" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span class="text-4xl">
-                    <Icon icon="ri:twitter-x-fill" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span class="text-4xl">
-                    <Icon icon="ri:instagram-fill" />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  <span class="text-4xl">
-                    <Icon icon="ic:baseline-reddit" />
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <div class="container">
-          <button
-            class="w-full px-3 py-3 text-white rounded bg-zinc-800 dark:bg-zinc-800"
-            on:click={handleNav}
-          >
-            Close Menu
-          </button>
         </div>
       </div>
     {/if}
