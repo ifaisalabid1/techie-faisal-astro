@@ -131,7 +131,7 @@
       >
         <div class="flex flex-col gap-2">
           <div
-            class="container flex items-center justify-between gap-6 border-b pb-2 shadow"
+            class="container flex items-center justify-between gap-6 border-b shadow"
           >
             <div class="text-xl font-bold">
               <a href="/"
