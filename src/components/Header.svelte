@@ -108,7 +108,7 @@
   <nav class="lg:hidden">
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
-        <a href="/"><img src={logo.src} alt="" width={70} height={70} /></a>
+        <a href="/"><img src={logo.src} alt="" width={55} height={55} /></a>
       </div>
 
       <div class="flex gap-2 items-center">
@@ -133,7 +133,7 @@
           class="container flex items-center justify-between gap-6 border-b pb-2 shadow"
         >
           <div class="text-xl font-bold">
-            <a href="/"><img src={logo.src} alt="" width={70} height={70} /></a>
+            <a href="/"><img src={logo.src} alt="" width={55} height={55} /></a>
           </div>
 
           <div class="flex gap-2 items-center">
@@ -157,7 +157,6 @@
                     ? "bg-lightBlue text-white"
                     : "bg-zinc-100 dark:bg-slate-950"
                 }`}
-                on:click={handleNav}
               >
                 {item.text}
                 <span class="text-2xl">
