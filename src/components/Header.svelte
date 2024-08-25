@@ -43,13 +43,13 @@
 </script>
 
 <header
-  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-slate-900 py-2 lg:py-4 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
+  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-slate-900 backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
 >
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
     <div class="text-xl font-bold">
       <a href="/">
-        <img src={logo.src} alt="" class="w-28" />
+        <img src={logo.src} alt="" width={70} height={70} />
       </a>
     </div>
 
@@ -108,7 +108,7 @@
   <nav class="lg:hidden">
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
-        <a href="/"><img src={logo.src} alt="" class="w-20" /></a>
+        <a href="/"><img src={logo.src} alt="" width={70} height={70} /></a>
       </div>
 
       <div class="flex gap-2 items-center">
@@ -126,14 +126,14 @@
 
     {#if nav}
       <div
-        class="flex flex-col w-full gap-2 pb-8 pt-2 absolute font-medium top-0 bg-white dark:bg-slate-900 h-screen"
+        class="flex flex-col w-full gap-2 pb-8 absolute font-medium top-0 bg-white dark:bg-slate-900 h-screen"
         transition:fly
       >
         <div
           class="container flex items-center justify-between gap-6 border-b pb-2 shadow"
         >
           <div class="text-xl font-bold">
-            <a href="/"><img src={logo.src} alt="" class="w-20" /></a>
+            <a href="/"><img src={logo.src} alt="" width={70} height={70} /></a>
           </div>
 
           <div class="flex gap-2 items-center">
