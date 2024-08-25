@@ -1,7 +1,3 @@
----
-import { Picture } from "astro:assets";
-import logo from "$lib/lib/assets/img/logo.png"
----
 
 <footer class="pt-12 bg-zinc-100 dark:bg-zinc-900 xl:pt-16">
   <div class="max-w-md lg:max-w-xl xl:max-w-full">
@@ -9,11 +5,9 @@ import logo from "$lib/lib/assets/img/logo.png"
       class="container flex flex-col justify-between gap-12 xl:grid xl:grid-cols-3 xl:gap-12 xl:items-center xl:place-items-end"
     >
       <div>
-        <Picture
-          src={logo}
+        <img
+          src="/img/logo.png"
           alt=""
-          formats={["png", "webp"]}
-          quality={100}
           width={70}
           height={70}
         />  

@@ -4,7 +4,6 @@
   import { fly } from "svelte/transition";
   import { ModeWatcher } from "mode-watcher";
   import ModeToggle from "$lib/components/ModeToggle.svelte";
-  import logo from "$lib/lib/assets/img/logo.png";
 
   const navItems = [
     { id: 1, text: "Home", link: "/" },
@@ -49,7 +48,7 @@
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
     <div class="text-xl font-bold">
       <a href="/">
-        <img src={logo.src} alt="" width={70} height={70} />
+        <img src="/img/logo.png" alt="" width={70} height={70} />
       </a>
     </div>
 
@@ -108,7 +107,8 @@
   <nav class="lg:hidden">
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
-        <a href="/"><img src={logo.src} alt="" width={55} height={55} /></a>
+        <a href="/"><img src="/img/logo.png" alt="" width={55} height={55} /></a
+        >
       </div>
 
       <div class="flex gap-2 items-center">
@@ -133,7 +133,9 @@
           class="container flex items-center justify-between gap-6 border-b pb-2 shadow"
         >
           <div class="text-xl font-bold">
-            <a href="/"><img src={logo.src} alt="" width={55} height={55} /></a>
+            <a href="/"
+              ><img src="/img/logo.png" alt="" width={55} height={55} /></a
+            >
           </div>
 
           <div class="flex gap-2 items-center">

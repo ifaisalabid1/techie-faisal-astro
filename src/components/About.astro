@@ -1,14 +1,8 @@
----
-import { Picture } from "astro:assets";
-import logo from "$lib/lib/assets/img/logo.png"
----
 
 <section class="p-10 rounded-lg bg-zinc-100 dark:bg-zinc-900">
-  <Picture
-        src={logo}
+  <img
+        src='/img/logo.png'
         alt=""
-        formats={["png", "webp"]}
-        quality={100}
         width={70}
         height={70}
       />  
