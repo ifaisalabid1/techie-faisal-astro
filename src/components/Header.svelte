@@ -127,7 +127,7 @@
     {#if nav}
       <div
         class="flex flex-col w-full gap-2 justify-between pb-8 absolute font-medium top-0 bg-white dark:bg-zinc-900 h-[100dvh]"
-        transition:fly
+        transition:fly={{ duration: 300 }}
       >
         <div class="flex flex-col gap-2">
           <div
@@ -175,28 +175,28 @@
           <ul class="flex gap-3 items-center flex-wrap my-4">
             <li>
               <a href="">
-                <span class="text-2xl">
+                <span class="text-3xl">
                   <Icon icon="ic:baseline-facebook" />
                 </span>
               </a>
             </li>
             <li>
               <a href="">
-                <span class="text-2xl">
+                <span class="text-3xl">
                   <Icon icon="ri:twitter-x-fill" />
                 </span>
               </a>
             </li>
             <li>
               <a href="">
-                <span class="text-2xl">
+                <span class="text-3xl">
                   <Icon icon="ri:instagram-fill" />
                 </span>
               </a>
             </li>
             <li>
               <a href="">
-                <span class="text-2xl">
+                <span class="text-3xl">
                   <Icon icon="ic:baseline-reddit" />
                 </span>
               </a>
