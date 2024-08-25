@@ -140,8 +140,6 @@
             </div>
 
             <div class="flex gap-2 items-center">
-              <ModeToggle />
-
               <button on:click={handleNav} class="cursor-pointer">
                 <span class="text-4xl">
                   <Icon icon="material-symbols:close" />
@@ -174,50 +172,38 @@
         <div
           class="flex justify-between gap-2 items-center container border-t pt-2"
         >
-          <ul class="flex gap-2.5 items-center flex-wrap my-4">
+          <ul class="flex gap-3 items-center flex-wrap my-4">
             <li>
               <a href="">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ic:baseline-facebook" />
                 </span>
               </a>
             </li>
             <li>
               <a href="">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ri:twitter-x-fill" />
                 </span>
               </a>
             </li>
             <li>
               <a href="">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ri:instagram-fill" />
                 </span>
               </a>
             </li>
             <li>
               <a href="">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ic:baseline-reddit" />
                 </span>
               </a>
             </li>
           </ul>
 
-          <div class="flex items-center gap-2">
-            <ModeToggle />
-
-            <button on:click={handleNav} class="cursor-pointer">
-              <span class="text-4xl">
-                <Icon
-                  icon={nav
-                    ? "material-symbols:close"
-                    : "material-symbols:menu"}
-                />
-              </span>
-            </button>
-          </div>
+          <ModeToggle />
         </div>
       </div>
     {/if}
