@@ -1,37 +1,42 @@
 ---
-import type { MarkdownHeading } from 'astro';
+import type { MarkdownHeading } from 'astro'
 
 type Props = {
-  headings: MarkdownHeading[];
-};
+  headings: MarkdownHeading[]
+}
 
 type HeadingWithSubheadings = MarkdownHeading & {
-  subheadings: MarkdownHeading[];
-};
+  subheadings: MarkdownHeading[]
+}
 
-const { headings } = Astro.props;
+const { headings } = Astro.props
 
 const grouppedHeadings = headings.reduce((array, heading) => {
   if (heading.depth === 2) {
-    array.push({ ...heading, subheadings: [] });
+    array.push({ ...heading, subheadings: [] })
   } else if (heading.depth === 3) {
-    array.at(-1)?.subheadings.push(heading);
+    array.at(-1)?.subheadings.push(heading)
   }
-  return array;
-}, [] as HeadingWithSubheadings[]);
+  return array
+}, [] as HeadingWithSubheadings[])
 ---
 
-<nav id="table-of-contents" aria-label="Table Of Contents">
-  <ol>
+<h2 class="text-xl font-bold">Table of Contents</h2>
+<nav id="table-of-contents" aria-label="Table Of Contents" class="mt-4">
+  <ol class="grid list-inside list-disc grid-cols-1 gap-2">
     {
       grouppedHeadings.map((h) => (
         <li>
-          <a href={`#${h.slug}`}>{h.text}</a>
+          <a href={`#${h.slug}`} class="transition hover:text-lightBlue">
+            {h.text}
+          </a>
           {h.subheadings.length > 0 && (
             <ol>
               {h.subheadings.map((sub) => (
                 <li>
-                  <a href={`#${sub.slug}`}>{sub.text}</a>
+                  <a href={`#${sub.slug}`} class="transition hover:text-lightBlue">
+                    {sub.text}
+                  </a>
                 </li>
               ))}
             </ol>
@@ -41,4 +46,3 @@ const grouppedHeadings = headings.reduce((array, heading) => {
     }
   </ol>
 </nav>
-

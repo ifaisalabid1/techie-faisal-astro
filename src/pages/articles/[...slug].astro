@@ -10,225 +10,218 @@ import FeaturedPost from '$lib/components/FeaturedPost.astro'
 import ArticleCard from '$lib/components/ArticleCard.astro'
 import Prose from '$lib/components/Prose.astro'
 import TOC from '$lib/components/TOC.astro'
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator
-} from '$lib/components/ui/breadcrumb'
+import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 
 const allFeaturedArticles: CollectionEntry<'featuredArticles'>[] = (
-	await getCollection('featuredArticles')
+  await getCollection('featuredArticles')
 ).sort(
-	(a: CollectionEntry<'featuredArticles'>, b: CollectionEntry<'featuredArticles'>) =>
-		b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a: CollectionEntry<'featuredArticles'>, b: CollectionEntry<'featuredArticles'>) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 )
 
 export async function getStaticPaths() {
-	const allArticles = await getCollection('articles')
-	return allArticles.map((article) => ({
-		params: { slug: article.slug },
-		props: { article }
-	}))
+  const allArticles = await getCollection('articles')
+  return allArticles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }))
 }
 
 const { article } = Astro.props
 const { Content, remarkPluginFrontmatter, headings } = await article.render()
 
 const relatedArticles = article.data.relatedArticles
-	? await getEntries(article.data.relatedArticles)
-	: []
+  ? await getEntries(article.data.relatedArticles)
+  : []
 ---
 
 <BaseLayout>
-	<main class="container mb-16 mt-8 md:mb-24">
-		<Breadcrumb>
-			<BreadcrumbList>
-				<BreadcrumbItem>
-					<BreadcrumbLink href="/">Home</BreadcrumbLink>
-				</BreadcrumbItem>
-				<BreadcrumbSeparator />
-				<BreadcrumbItem>
-					<BreadcrumbLink href="/articles/">Articles</BreadcrumbLink>
-				</BreadcrumbItem>
-				<BreadcrumbSeparator />
-				<BreadcrumbItem>
-					<BreadcrumbPage>{article.data.title}</BreadcrumbPage>
-				</BreadcrumbItem>
-			</BreadcrumbList>
-		</Breadcrumb>
+  <main class="container mb-16 mt-8 md:mb-24">
+    <Breadcrumb.Root>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/articles/">Articles</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>{article.data.title}</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
+    </Breadcrumb.Root>
 
-		<h1 class="mb-3 mt-6 text-4xl font-extrabold">{article.data.title}</h1>
+    <h1 class="mb-3 mt-6 text-4xl font-extrabold">{article.data.title}</h1>
 
-		<div class="mt-4">
-			<Tag tags={article.data.tags} />
-		</div>
+    <div class="mt-4">
+      <Tag tags={article.data.tags} />
+    </div>
 
-		<div class="my-6 flex items-center gap-2">
-			<div class="relative h-10 w-10 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-900">
-				<svg
-					class="absolute -left-1 h-12 w-12 text-zinc-400"
-					fill="currentColor"
-					viewBox="0 0 20 20"
-					xmlns="http://www.w3.org/2000/svg"
-					><path
-						fill-rule="evenodd"
-						d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-						clip-rule="evenodd"></path></svg
-				>
-			</div>
+    <div class="my-6 flex items-center gap-2">
+      <div class="relative h-10 w-10 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-900">
+        <svg
+          class="absolute -left-1 h-12 w-12 text-zinc-400"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+            clip-rule="evenodd"></path></svg
+        >
+      </div>
 
-			<span class="grid grid-cols-1 text-sm text-zinc-800 dark:text-foreground">
-				<span class="font-semibold">
-					{article.data.author}
-				</span>
-				<span>
-					<span class="mt-1 dark:text-muted-foreground md:mt-0"
-						>{formatDate(article.data.pubDate)}</span
-					>
+      <span class="grid grid-cols-1 text-sm text-zinc-800 dark:text-foreground">
+        <span class="font-semibold">
+          {article.data.author}
+        </span>
+        <span>
+          <span class="mt-1 dark:text-muted-foreground md:mt-0"
+            >{formatDate(article.data.pubDate)}</span
+          >
 
-					<span class="pubDate dark:text-muted-foreground">
-						{remarkPluginFrontmatter.minutesRead}
-					</span>
-				</span>
-			</span>
-		</div>
+          <span class="pubDate dark:text-muted-foreground">
+            {remarkPluginFrontmatter.minutesRead}
+          </span>
+        </span>
+      </span>
+    </div>
 
-		<section class="grid grid-cols-1 gap-12 lg:grid-cols-3">
-			<div class:list={['lg:col-span-2', { 'border-b pb-12': relatedArticles.length > 0 }]}>
-				<Picture
-					src={article.data.image}
-					alt=""
-					class="rounded-lg"
-					formats={['avif', 'webp']}
-					widths={[375, 425, 768, 1024, article.data.image.width]}
-					sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 768px, (max-width: 1440px) 1024px ${article.data.image.width}px`}
-				/>
+    <section class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+      <div class:list={['lg:col-span-2', { 'border-b pb-12': relatedArticles.length > 0 }]}>
+        <Picture
+          src={article.data.image}
+          alt=""
+          class="rounded-lg"
+          formats={['avif', 'webp']}
+          widths={[375, 425, 768, 1024, article.data.image.width]}
+          sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 768px, (max-width: 1440px) 1024px ${article.data.image.width}px`}
+        />
 
-				<div class="my-6">
-					<TOC headings={headings} />
-				</div>
+        <div class="my-8 md:my-12">
+          <TOC headings={headings} />
+        </div>
 
-				<Prose>
-					<Content />
-				</Prose>
+        <Prose>
+          <Content />
+        </Prose>
 
-				<div
-					class="mt-16 flex flex-wrap items-center justify-between gap-4 text-base font-semibold"
-				>
-					<div class="flex flex-wrap items-center gap-2">
-						<span class="dark:text-muted-foreground">By</span>
+        <div
+          class="mt-16 flex flex-wrap items-center justify-between gap-4 text-base font-semibold"
+        >
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="dark:text-muted-foreground">By</span>
 
-						<div
-							class="relative h-10 w-10 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-900"
-						>
-							<svg
-								class="absolute -left-1 h-12 w-12 text-zinc-400"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
-								><path
-									fill-rule="evenodd"
-									d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-									clip-rule="evenodd"></path></svg
-							>
-						</div>
+            <div
+              class="relative h-10 w-10 overflow-hidden rounded-full bg-zinc-100 dark:bg-zinc-900"
+            >
+              <svg
+                class="absolute -left-1 h-12 w-12 text-zinc-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  fill-rule="evenodd"
+                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                  clip-rule="evenodd"></path></svg
+              >
+            </div>
 
-						<span class="dark:text-foreground">{article.data.author}</span>
-						<span class="pubDateMob text-zinc-500 dark:text-muted-foreground md:-ml-2"
-							>Update {formatDate(article.data.pubDate)}</span
-						>
-					</div>
+            <span class="dark:text-foreground">{article.data.author}</span>
+            <span class="pubDateMob text-zinc-500 dark:text-muted-foreground md:-ml-2"
+              >Update {formatDate(article.data.pubDate)}</span
+            >
+          </div>
 
-					<Tag tags={article.data.tags} />
-				</div>
-			</div>
+          <Tag tags={article.data.tags} />
+        </div>
+      </div>
 
-			{
-				relatedArticles.length > 0 && (
-					<section class="border-b pb-10 lg:mt-14 lg:hidden">
-						<h2 class="text-4xl font-extrabold">Read Next</h2>
+      {
+        relatedArticles.length > 0 && (
+          <section class="border-b pb-10 lg:mt-14 lg:hidden">
+            <h2 class="text-4xl font-extrabold">Read Next</h2>
 
-						<div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-							{relatedArticles.slice(0, 5).map((relatedArticle) => (
-								<ArticleCard article={relatedArticle} />
-							))}
-						</div>
-					</section>
-				)
-			}
+            <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+              {relatedArticles.slice(0, 5).map((relatedArticle) => (
+                <ArticleCard article={relatedArticle} />
+              ))}
+            </div>
+          </section>
+        )
+      }
 
-			<!-- sidebar -->
-			<aside class="h-fit md:grid md:grid-cols-2 md:gap-10 lg:col-span-1 lg:grid-cols-1">
-				<div>
-					<About />
-					<hr class="mt-10" />
+      <!-- sidebar -->
+      <aside class="h-fit md:grid md:grid-cols-2 md:gap-10 lg:col-span-1 lg:grid-cols-1">
+        <div>
+          <About />
+          <hr class="mt-10" />
 
-					<section class="mt-10">
-						<h2 class="text-xl font-bold">Featured Posts</h2>
+          <section class="mt-10">
+            <h2 class="text-xl font-bold">Featured Posts</h2>
 
-						<div class="mt-8 grid grid-cols-1 gap-8">
-							{
-								allFeaturedArticles
-									.slice(0, 5)
-									.map((featuredArticle) => <FeaturedPost featuredArticle={featuredArticle} />)
-							}
-						</div>
-					</section>
-					<hr class="mt-10 md:max-lg:hidden" />
-				</div>
+            <div class="mt-8 grid grid-cols-1 gap-8">
+              {
+                allFeaturedArticles
+                  .slice(0, 5)
+                  .map((featuredArticle) => <FeaturedPost featuredArticle={featuredArticle} />)
+              }
+            </div>
+          </section>
+          <hr class="mt-10 md:max-lg:hidden" />
+        </div>
 
-				<section class="mt-10 md:mt-2">
-					<ContactCard />
-				</section>
-			</aside>
-			<!-- /sidebar -->
-		</section>
+        <section class="mt-10 md:mt-2">
+          <ContactCard />
+        </section>
+      </aside>
+      <!-- /sidebar -->
+    </section>
 
-		{
-			relatedArticles.length > 0 && (
-				<section class="mt-14 hidden lg:block">
-					<h2 class="text-4xl font-extrabold">Read Next</h2>
+    {
+      relatedArticles.length > 0 && (
+        <section class="mt-14 hidden lg:block">
+          <h2 class="text-4xl font-extrabold">Read Next</h2>
 
-					<div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-						{relatedArticles.slice(0, 5).map((relatedArticle) => (
-							<ArticleCard article={relatedArticle} />
-						))}
-					</div>
-				</section>
-			)
-		}
-	</main>
+          <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+            {relatedArticles.slice(0, 5).map((relatedArticle) => (
+              <ArticleCard article={relatedArticle} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </main>
 </BaseLayout>
 
 <style>
-	.pubDate::before {
-		display: inline-flex;
-		position: relative;
-		content: '';
-		width: 0.3125rem;
-		height: 0.3125rem;
-		margin-right: 0.3rem;
-		margin-left: 0.3rem;
-		border-radius: 50%;
-		background-color: #a1a1aa;
-		bottom: 2px;
-	}
+  .pubDate::before {
+    display: inline-flex;
+    position: relative;
+    content: '';
+    width: 0.3125rem;
+    height: 0.3125rem;
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+    border-radius: 50%;
+    background-color: #a1a1aa;
+    bottom: 2px;
+  }
 
-	@media screen and (min-width: 768px) {
-		.pubDateMob::before {
-			display: inline-flex;
-			position: relative;
-			content: '';
-			width: 0.3125rem;
-			height: 0.3125rem;
-			margin-right: 0.5rem;
-			margin-left: 0.5rem;
-			border-radius: 50%;
-			background-color: #a1a1aa;
-			bottom: 2px;
-		}
-	}
+  @media screen and (min-width: 768px) {
+    .pubDateMob::before {
+      display: inline-flex;
+      position: relative;
+      content: '';
+      width: 0.3125rem;
+      height: 0.3125rem;
+      margin-right: 0.5rem;
+      margin-left: 0.5rem;
+      border-radius: 50%;
+      background-color: #a1a1aa;
+      bottom: 2px;
+    }
+  }
 </style>
