@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
+import { remarkReadingTime } from "./remark-reading-time.mjs";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://techiefaisal.com/",
   trailingSlash: "always",
@@ -18,4 +18,8 @@ export default defineConfig({
     }),
     sitemap(),
   ],
+
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+  },
 });

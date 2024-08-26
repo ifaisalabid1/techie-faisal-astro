@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-const { Content } = await article.render();
+const { Content, remarkPluginFrontmatter } = await article.render();
 
 const relatedArticles = article.data.relatedArticles
   ? await getEntries(article.data.relatedArticles)
@@ -67,6 +67,7 @@ const relatedArticles = article.data.relatedArticles
       <Tag tags={article.data.tags} />
     </div>
 
+   
     <div class="flex gap-2 items-center my-6">
       <div
         class="relative w-10 h-10 overflow-hidden bg-zinc-100 dark:bg-zinc-900 rounded-full"
@@ -87,15 +88,20 @@ const relatedArticles = article.data.relatedArticles
         <span class="font-semibold">
           {article.data.author}
         </span>
-        <span class="font-semibold">
-          Updated <span
-            class="text-zinc-500 dark:text-muted-foreground mt-1 md:mt-0 pubDate"
+        <span>
+          <span
+            class="text-zinc-500 dark:text-muted-foreground mt-1 md:mt-0"
             >{formatDate(article.data.pubDate)}</span
           >
+          
+        <span class="pubDate text-zinc-500 dark:text-muted-foreground">
+          {remarkPluginFrontmatter.minutesRead}
+        </span>
         </span>
       </span>
     </div>
-
+   
+    
     <section class="grid grid-cols-1 gap-12 lg:grid-cols-3">
       <div
         class:list={[
@@ -137,7 +143,7 @@ const relatedArticles = article.data.relatedArticles
 
               <span class="dark:text-foreground">{article.data.author}</span>
               <span
-                class="pubDate md:-ml-2 text-zinc-500 dark:text-muted-foreground"
+                class="text-zinc-500 dark:text-muted-foreground md:-ml-2 pubDateMob"
                 >Update {formatDate(article.data.pubDate)}</span
               >
             </div>
@@ -208,8 +214,21 @@ const relatedArticles = article.data.relatedArticles
   </main>
 
   <style>
+.pubDate::before {
+        display: inline-flex;
+        position: relative;
+        content: "";
+        width: 0.3125rem;
+        height: 0.3125rem;
+        margin-right: 0.3rem;
+        margin-left: 0.3rem;
+        border-radius: 50%;
+        background-color: #a1a1aa;
+        bottom: 2px;
+      }
+   
     @media screen and (min-width: 768px) {
-      .pubDate::before {
+      .pubDateMob::before {
         display: inline-flex;
         position: relative;
         content: "";
