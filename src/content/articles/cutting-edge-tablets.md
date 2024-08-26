@@ -1,5 +1,7 @@
 ---
 title: "Unleash Creativity With These Cutting-Edge Tablets"
+description: The best laptops for developers in 2024
+url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
 pubDate: 2024-01-14
 author: "Ralph Johnson"
 image: "../img/image7.png"

@@ -14,7 +14,7 @@ import Header from '$lib/components/Header.svelte'
 import Footer from '$lib/components/Footer.astro'
 import LoadingIndicator from 'astro-loading-indicator/component'
 
-const { title, url } = Astro.props
+const { title, url, description } = Astro.props
 ---
 
 <script is:inline>
@@ -44,20 +44,17 @@ const { title, url } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="language" content="English" />
     <meta name="rating" content="general" />
-    <meta http-equiv="cache-control" content="public" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={url} />
     <meta name="contact" content="email id" />
-    <meta name="copyright" content="company name" />
     <meta name="reply-to" content="email id" />
-    <meta name="web_author" content="company name" />
 
-    <meta name="description" content="" />
+    <meta name="description" content={description} />
     <meta name="og:title" content={`${title} | Techie Faisal`} />
-    <meta name="og:description" content="" />
+    <meta name="og:description" content={description} />
+    <meta name="”robots”" content="noindex, nofollow" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -65,6 +62,7 @@ const { title, url } = Astro.props
     <title>{title} | Techie Faisal</title>
 
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={url} />
 
     <LoadingIndicator color="#0d6eff" height="2.5px" />
     <ViewTransitions />

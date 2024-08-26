@@ -1,5 +1,7 @@
 ---
 title: "Elevate Your Mobile Experience with Samsung"
+description: The best laptops for developers in 2024
+url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
 pubDate: 2024-01-17
 author: "Jane Smith"
 image: "../img/image4.png"

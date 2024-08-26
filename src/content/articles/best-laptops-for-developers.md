@@ -1,5 +1,7 @@
 ---
 title: The best laptops for developers in 2024
+description: The best laptops for developers in 2024
+url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
 tags:
   - Tech
   - Hardware
