@@ -1,5 +1,5 @@
 backend:
-  name: git-gateway
+  name: github
   repo: ifaisalabid1/techie-faisal
   branch: main
   base_url: https://techie-faisal.pages.dev/
