@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ifaisalabid1/techie-faisal
   branch: main
-  base_url: https://techie-faisal.pages.dev/
+  base_url: https://techie-faisal.pages.dev
 media_folder: '/src/content/img'
 public_folder: '../img'
 collections:
