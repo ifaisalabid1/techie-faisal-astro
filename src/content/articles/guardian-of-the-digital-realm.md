@@ -2,12 +2,14 @@
 title: "Guardian of the Digital Realm: Web Security"
 description: The best laptops for developers in 2024
 url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
-pubDate: 2024-01-19
-author: "John Doe"
-image: "../img/image2.png"
-tags: ["code", "security", "tech"]
+tags:
+  - code
+  - security
+  - tech
+author: John Doe
+image: ../img/image2.png
+pubDate: 2024-01-19T00:00
 ---
-
 In today's interconnected world, where data breaches and cyber threats are on the rise, web security has become paramount. As the guardians of the digital realm, it's our responsibility to protect sensitive information, maintain user trust, and ensure the integrity of online systems. Let's dive into the world of web security and explore the key principles that every developer should embrace.
 
 ## **1. Authentication and Authorization**

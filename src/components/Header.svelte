@@ -48,7 +48,7 @@
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
     <div class="text-xl font-bold">
       <a href="/">
-        <img src="/img/logo.png" alt="" width={70} height={70} />
+        <img src="/img/logo.svg" alt="" width={70} height={70} />
       </a>
     </div>
 
@@ -107,7 +107,7 @@
   <nav class="lg:hidden">
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
-        <a href="/"><img src="/img/logo.png" alt="" width={55} height={55} /></a
+        <a href="/"><img src="/img/logo.svg" alt="" width={55} height={55} /></a
         >
       </div>
 
@@ -135,7 +135,7 @@
           >
             <div class="text-xl font-bold">
               <a href="/"
-                ><img src="/img/logo.png" alt="" width={55} height={55} /></a
+                ><img src="/img/logo.svg" alt="" width={55} height={55} /></a
               >
             </div>
 
