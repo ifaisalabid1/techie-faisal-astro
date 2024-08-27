@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: ifaisalabid1/techie-faisal
   branch: main
+  site_domain: https://techie-faisal.pages.dev
+  base_url: https://techie-faisal.pages.dev
+  auth_endpoint: /api/auth
 media_folder: 'src/content/img'
 public_folder: '../img'
 collections:
