@@ -8,7 +8,7 @@ tags:
   - tech
 author: David Mitchell
 image: ../img/image6.png
-pubDate: 2024-01-15T00:00
+pubDate: 2024-01-15
 ---
 For photographers and enthusiasts alike, Canon has been a symbol of excellence in the world of photography for decades. In 2024, Canon continues to lead the way in innovation, enabling us to capture life's most precious moments with unparalleled quality and precision. Let's explore the world of photography and how Canon's excellence plays a pivotal role.
 
