@@ -7,7 +7,7 @@ tags:
   - Hardware
 author: John Doe
 image: ../img/image1.png
-pubDate: 2024-08-27T22:15:00.000Z
+pubDate: 2024-08-27
 relatedArticles:
   - cannon-excellence
   - elevate-your-mobile-experience

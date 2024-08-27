@@ -2,7 +2,7 @@
 title: "Immerse in the Virtual World: VR Development"
 description: The best laptops for developers in 2024
 url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
-pubDate: "2024-01-18"
+pubDate: 2024-01-18
 author: "Michael Johnson"
 image: "../img/image3.png"
 tags: ["vr", "gadgets", "tech"]
