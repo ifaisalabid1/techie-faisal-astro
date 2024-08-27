@@ -1,5 +1,5 @@
 User-agent: *
 Disallow: /
-Disallow: /maintainer/
+Disallow: /admin/
 
 Sitemap: https://techiefaisal.com/sitemap-index.xml
