@@ -6,7 +6,7 @@ const articles = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
-      url: z.string(),
+      url: z.string().url(),
       tags: z.array(z.string().toLowerCase()),
       author: z.string(),
       image: image(),
