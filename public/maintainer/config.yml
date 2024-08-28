@@ -9,6 +9,7 @@ collections:
     folder: 'src/content/articles'
     create: true
     fields:
+      - { label: 'Draft', name: 'draft', widget: 'boolean' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'URL', name: 'url', widget: 'string' }

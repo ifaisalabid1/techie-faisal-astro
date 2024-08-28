@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Elevate Your Mobile Experience with Samsung"
 pubDate: 2024-01-17
 author: "Jane Smith"

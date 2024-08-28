@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Soaring to New Heights: The World of Drones"
 description: The best laptops for developers in 2024
 url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
