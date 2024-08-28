@@ -12,9 +12,14 @@ import Prose from '$lib/components/Prose.astro'
 import TOC from '$lib/components/TOC.astro'
 import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 
-const allFeaturedArticles: CollectionEntry<'featuredArticles'>[] = (
-  await getCollection('featuredArticles')
-).sort(
+const allFeaturedArticles: CollectionEntry<'featuredArticles'>[] = await getCollection(
+  'featuredArticles',
+  ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true
+  }
+)
+
+allFeaturedArticles.sort(
   (a: CollectionEntry<'featuredArticles'>, b: CollectionEntry<'featuredArticles'>) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 )

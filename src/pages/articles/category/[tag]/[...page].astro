@@ -9,21 +9,23 @@ import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 import Paginator from '$lib/components/Paginator.astro'
 
 export async function getStaticPaths({ paginate }: any) {
-	const allArticles = await getCollection('articles')
-	const uniqueTags = [...new Set(allArticles.map((article) => article.data.tags).flat())]
+  const allArticles = await getCollection('articles', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true
+  })
+  const uniqueTags = [...new Set(allArticles.map((article) => article.data.tags).flat())]
 
-	return uniqueTags.flatMap((tag) => {
-		const filteredArticles = allArticles
-			.filter((article) => article.data.tags.includes(tag))
-			.sort(
-				(a: CollectionEntry<'articles'>, b: CollectionEntry<'articles'>) =>
-					b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-			)
-		return paginate(filteredArticles, {
-			params: { tag },
-			pageSize: 15
-		})
-	})
+  return uniqueTags.flatMap((tag) => {
+    const filteredArticles = allArticles
+      .filter((article) => article.data.tags.includes(tag))
+      .sort(
+        (a: CollectionEntry<'articles'>, b: CollectionEntry<'articles'>) =>
+          b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+      )
+    return paginate(filteredArticles, {
+      params: { tag },
+      pageSize: 15
+    })
+  })
 }
 
 const { tag } = Astro.params
@@ -31,31 +33,31 @@ const { page } = Astro.props
 ---
 
 <BaseLayout>
-	<main class="container mb-16 mt-8 md:mb-24">
-		<Breadcrumb.Root>
-			<Breadcrumb.List>
-				<Breadcrumb.Item>
-					<Breadcrumb.Link href="/">Home</Breadcrumb.Link>
-				</Breadcrumb.Item>
-				<Breadcrumb.Separator />
-				<Breadcrumb.Item>
-					<Breadcrumb.Link href="/articles/">Articles</Breadcrumb.Link>
-				</Breadcrumb.Item>
-				<Breadcrumb.Separator />
-				<Breadcrumb.Item>
-					<Breadcrumb.Page>{capitalize(tag)}</Breadcrumb.Page>
-				</Breadcrumb.Item>
-			</Breadcrumb.List>
-		</Breadcrumb.Root>
+  <main class="container mb-16 mt-8 md:mb-24">
+    <Breadcrumb.Root>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/articles/">Articles</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>{capitalize(tag)}</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
+    </Breadcrumb.Root>
 
-		<h1 class="mt-8 text-4xl font-bold xl:mt-12">{capitalize(tag)}</h1>
+    <h1 class="mt-8 text-4xl font-bold xl:mt-12">{capitalize(tag)}</h1>
 
-		<div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-			{(page as any).data.map((article: any) => <ArticleCard article={article} />)}
-		</div>
+    <div class="mt-10 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
+      {(page as any).data.map((article: any) => <ArticleCard article={article} />)}
+    </div>
 
-		<div class="mt-16 md:mt-20 lg:mt-24">
-			<Paginator page={page} />
-		</div>
-	</main>
+    <div class="mt-16 md:mt-20 lg:mt-24">
+      <Paginator page={page} />
+    </div>
+  </main>
 </BaseLayout>
