@@ -4,7 +4,7 @@ const articles = defineCollection({
   type: 'content',
   schema: ({ image }) =>
     z.object({
-      draft: z.boolean().default(true),
+      draft: z.boolean(),
       title: z.string(),
       description: z.string(),
       url: z.string().url(),
