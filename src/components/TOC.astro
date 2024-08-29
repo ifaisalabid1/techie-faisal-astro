@@ -21,7 +21,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 }, [] as HeadingWithSubheadings[])
 ---
 
-<section class="flex items-center justify-between gap-4 md:justify-start">
+<section class="flex items-center gap-4">
   <h2 class="text-xl font-bold">Table of Contents</h2>
 
   <button
@@ -29,7 +29,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
     aria-label="Toggle Table of Contents"
     class="rounded border-2 hover:bg-zinc-100 focus:bg-zinc-100 dark:hover:bg-zinc-900 dark:focus:bg-zinc-900"
   >
-    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6">
       <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"></path>
     </svg>
   </button>
@@ -67,7 +67,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
   </ol>
 </nav>
 
-<script>
+<script is:inline>
   const showTOC = document.querySelector('#showTOC')
   const TOC = document.querySelector('#table-of-contents')
 

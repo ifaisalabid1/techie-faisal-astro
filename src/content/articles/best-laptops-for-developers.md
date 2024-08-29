@@ -20,6 +20,12 @@ In the ever-evolving landscape of technology, developers require laptops that ca
 
 ![test](../img/image3.png)
 
+| Month    | Savings | Test   | test   | test |
+| -------- | ------- | ------ | ------ | ---- |
+| January  | $250    | test 1 | test 2 | test |
+| February | $80     | test 2 | test 3 | test |
+| March    | $420    | test 3 | test 4 | test |
+
 Apple has consistently delivered high-performance laptops for developers, and the MacBook Pro with the M2X chip is no exception. With its blazing-fast processor, ample RAM, and stunning Retina display, it's a dream machine for coding. The improved battery life ensures you can code for hours without interruption. Plus, macOS offers a Unix-based environment, perfect for software development.
 
 ## Dell XPS 17
