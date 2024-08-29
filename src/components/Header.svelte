@@ -45,7 +45,7 @@
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
     <div class="text-xl font-bold">
-      <a href="/">
+      <a href="/" aria-label="Go to Homepage">
         <img src="/img/logo.svg" alt="" width={70} height={70} />
       </a>
     </div>
@@ -66,28 +66,28 @@
 
     <ul class="flex items-center gap-2.5">
       <li>
-        <a href="" class="hover:text-lightBlue transition">
+        <a href="" class="hover:text-lightBlue transition" aria-label="Facebook Link">
           <span class="text-2xl">
             <Icon icon="ic:baseline-facebook" />
           </span>
         </a>
       </li>
       <li>
-        <a href="" class="hover:text-lightBlue transition">
+        <a href="" class="hover:text-lightBlue transition" aria-label="Twitter/X Link">
           <span class="text-2xl">
             <Icon icon="ri:twitter-x-fill" />
           </span>
         </a>
       </li>
       <li>
-        <a href="" class="hover:text-lightBlue transition">
+        <a href="" class="hover:text-lightBlue transition" aria-label="Instagram Link">
           <span class="text-2xl">
             <Icon icon="ri:instagram-fill" />
           </span>
         </a>
       </li>
       <li>
-        <a href="" class="hover:text-lightBlue transition">
+        <a href="" class="hover:text-lightBlue transition" aria-label="Reddit Link">
           <span class="text-2xl">
             <Icon icon="ic:baseline-reddit" />
           </span>
@@ -105,13 +105,15 @@
   <nav class="lg:hidden">
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
-        <a href="/"><img src="/img/logo.svg" alt="" width={55} height={55} /></a>
+        <a href="/" aria-label="Go to homepage"
+          ><img src="/img/logo.svg" alt="" width={55} height={55} /></a
+        >
       </div>
 
       <div class="flex gap-2 items-center">
         <ModeToggle />
 
-        <button on:click={handleNav} class="cursor-pointer">
+        <button on:click={handleNav} class="cursor-pointer" aria-label="Menu">
           <span class="text-4xl">
             <Icon icon={nav ? 'material-symbols:close' : 'material-symbols:menu'} />
           </span>
@@ -127,11 +129,13 @@
         <div class="flex flex-col gap-2">
           <div class="container flex items-center justify-between gap-6 border-b shadow">
             <div class="text-xl font-bold">
-              <a href="/"><img src="/img/logo.svg" alt="" width={55} height={55} /></a>
+              <a href="/" aria-label="Go to homepage"
+                ><img src="/img/logo.svg" alt="" width={55} height={55} /></a
+              >
             </div>
 
             <div class="flex gap-2 items-center">
-              <button on:click={handleNav} class="cursor-pointer">
+              <button on:click={handleNav} class="cursor-pointer" aria-label="Menu Close">
                 <span class="text-4xl">
                   <Icon icon="material-symbols:close" />
                 </span>
@@ -163,28 +167,28 @@
         <div class="flex justify-between gap-2 items-center container border-t pt-2">
           <ul class="flex gap-3 items-center flex-wrap my-4">
             <li>
-              <a href="">
+              <a href="" aria-label="Facebook Link">
                 <span class="text-3xl">
                   <Icon icon="ic:baseline-facebook" />
                 </span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="" aria-label="Twitter/X Link">
                 <span class="text-3xl">
                   <Icon icon="ri:twitter-x-fill" />
                 </span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="" aria-label="Instagram Link">
                 <span class="text-3xl">
                   <Icon icon="ri:instagram-fill" />
                 </span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="" aria-label="Reddit Link">
                 <span class="text-3xl">
                   <Icon icon="ic:baseline-reddit" />
                 </span>
