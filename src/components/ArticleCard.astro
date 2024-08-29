@@ -1,36 +1,35 @@
 ---
-import { formatDate } from "$lib/functions.ts";
-import Tag from "$lib/components/Tag.astro";
-import { Picture } from "astro:assets";
+import { formatDate } from '$lib/functions.ts'
+import Tag from '$lib/components/Tag.astro'
+import { Picture } from 'astro:assets'
 
-const { article } = Astro.props;
+const { article } = Astro.props
 ---
 
 <div>
   <div class="group">
-    <a href={`/articles/${article.slug}/`}>
-      <div class="overflow-hidden rounded-lg">    
+    <a href={`/articles/${article.slug}/`} aria-label={`Go to ${article.data.title}`}>
+      <div class="overflow-hidden rounded-lg">
         <Picture
           src={article.data.image}
           alt=""
-          class="rounded-lg group-hover:scale-105 group-hover:brightness-125 transition"
-          formats={["avif", "webp"]}
+          class="rounded-lg transition group-hover:scale-105 group-hover:brightness-125"
+          formats={['avif', 'webp']}
           widths={[375, 425, 540, 720, article.data.image.width]}
           sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 540px, (max-width: 1440px) 720px, ${article.data.image.width}px`}
-        />    
-    </div>
+        />
+      </div>
 
-    <div class="mt-4 text-sm font-medium">
-      <span class="text-zinc-600 dark:text-muted-foreground">By</span>
-      {article.data.author}
-      <span
-        class="block md:inline text-zinc-600 mt-1 md:mt-0 pubDate dark:text-muted-foreground"
-        >{formatDate(article.data.pubDate)}</span
-      >
-    </div>
-    <h2 class="mt-3 text-xl font-semibold hover:text-lightBlue transition">  
+      <div class="mt-4 text-sm font-medium">
+        <span class="text-zinc-600 dark:text-muted-foreground">By</span>
+        {article.data.author}
+        <span class="pubDate mt-1 block text-zinc-600 dark:text-muted-foreground md:mt-0 md:inline"
+          >{formatDate(article.data.pubDate)}</span
+        >
+      </div>
+      <h2 class="mt-3 text-xl font-semibold transition hover:text-lightBlue">
         {article.data.title}
-    </h2>
+      </h2>
     </a>
   </div>
 
@@ -44,7 +43,7 @@ const { article } = Astro.props;
     .pubDate::before {
       display: inline-flex;
       position: relative;
-      content: "";
+      content: '';
       width: 0.3125rem;
       height: 0.3125rem;
       margin-right: 0.5rem;

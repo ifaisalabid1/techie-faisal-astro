@@ -32,7 +32,11 @@ const { tag } = Astro.params
 const { page } = Astro.props
 ---
 
-<BaseLayout>
+<BaseLayout
+  title={`All ${tag} Articles - Techie Faisal`}
+  description=""
+  url={`https:techiefaisal.com/articles/category/${tag}`}
+>
   <main class="container mb-16 mt-8 md:mb-24">
     <Breadcrumb.Root>
       <Breadcrumb.List>

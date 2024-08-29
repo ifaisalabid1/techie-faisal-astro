@@ -21,7 +21,11 @@ export async function getStaticPaths({ paginate }: any) {
 const { page } = Astro.props
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="All Articles - Techie Faisal"
+  description=""
+  url="https://techiefaisal.com/articles/"
+>
   <main class="container mb-16 mt-8 md:mb-24">
     <Breadcrumb.Root>
       <Breadcrumb.List>

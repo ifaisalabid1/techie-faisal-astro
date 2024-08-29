@@ -59,7 +59,7 @@
               : 'border-b-2 border-transparent'
           }`}
         >
-          <a href={item.link}>{item.text}</a>
+          <a href={item.link} aria-label={`Go to ${item.text}`}>{item.text}</a>
         </li>
       {/each}
     </ul>
@@ -113,7 +113,7 @@
       <div class="flex gap-2 items-center">
         <ModeToggle />
 
-        <button on:click={handleNav} class="cursor-pointer" aria-label="Menu">
+        <button on:click={handleNav} class="cursor-pointer" aria-label="Menu Icon">
           <span class="text-4xl">
             <Icon icon={nav ? 'material-symbols:close' : 'material-symbols:menu'} />
           </span>
@@ -135,7 +135,7 @@
             </div>
 
             <div class="flex gap-2 items-center">
-              <button on:click={handleNav} class="cursor-pointer" aria-label="Menu Close">
+              <button on:click={handleNav} class="cursor-pointer" aria-label="Menu Close Icon">
                 <span class="text-4xl">
                   <Icon icon="material-symbols:close" />
                 </span>
@@ -153,6 +153,7 @@
                       ? 'bg-lightBlue text-white'
                       : 'bg-zinc-100 dark:bg-zinc-900'
                   }`}
+                  aria-label={`Go to ${item.text}`}
                 >
                   {item.text}
                   <span class="text-2xl">

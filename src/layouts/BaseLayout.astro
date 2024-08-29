@@ -44,6 +44,7 @@ const { title, url, description } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="language" content="English" />
     <meta name="rating" content="general" />
     <meta property="og:type" content="website" />
@@ -52,14 +53,14 @@ const { title, url, description } = Astro.props
     <meta name="reply-to" content="email id" />
 
     <meta name="description" content={description} />
-    <meta name="og:title" content={`${title} | Techie Faisal`} />
+    <meta name="og:title" content={title} />
     <meta name="og:description" content={description} />
     <meta name="”robots”" content="noindex, nofollow" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | Techie Faisal</title>
+    <title>{title}</title>
 
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={url} />

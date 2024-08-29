@@ -21,20 +21,40 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 }, [] as HeadingWithSubheadings[])
 ---
 
-<h2 class="text-xl font-bold">Table of Contents</h2>
-<nav id="table-of-contents" aria-label="Table Of Contents" class="mt-4">
+<section class="flex items-center justify-between gap-4 md:justify-start">
+  <h2 class="text-xl font-bold">Table of Contents</h2>
+
+  <button
+    id="showTOC"
+    aria-label="Toggle Table of Contents"
+    class="rounded border-2 hover:bg-zinc-100 focus:bg-zinc-100 dark:hover:bg-zinc-900 dark:focus:bg-zinc-900"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z"></path>
+    </svg>
+  </button>
+</section>
+<nav id="table-of-contents" aria-label="Table Of Contents" class="mt-4 hidden">
   <ol class="grid list-inside list-decimal grid-cols-1 gap-2">
     {
       grouppedHeadings.map((h) => (
         <li>
-          <a href={`#${h.slug}`} class="transition hover:text-lightBlue">
+          <a
+            href={`#${h.slug}`}
+            class="transition hover:text-lightBlue"
+            aria-label={`Go to ${h.text}`}
+          >
             {h.text}
           </a>
           {h.subheadings.length > 0 && (
             <ol>
               {h.subheadings.map((sub) => (
                 <li>
-                  <a href={`#${sub.slug}`} class="transition hover:text-lightBlue">
+                  <a
+                    href={`#${sub.slug}`}
+                    class="transition hover:text-lightBlue"
+                    aria-label={`Go to ${sub.text}`}
+                  >
                     {sub.text}
                   </a>
                 </li>
@@ -46,3 +66,12 @@ const grouppedHeadings = headings.reduce((array, heading) => {
     }
   </ol>
 </nav>
+
+<script>
+  const showTOC = document.querySelector('#showTOC')
+  const TOC = document.querySelector('#table-of-contents')
+
+  showTOC?.addEventListener('click', () => {
+    TOC?.classList.toggle('hidden')
+  })
+</script>
