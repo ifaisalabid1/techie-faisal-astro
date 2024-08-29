@@ -1,24 +1,11 @@
 ---
 import BaseLayout from '$lib/layouts/BaseLayout.astro'
 import About from '$lib/components/About.astro'
-import FeaturedPost from '$lib/components/FeaturedPost.astro'
 import ContactCard from '$lib/components/ContactCard.astro'
 import ArticleCard from '$lib/components/ArticleCard.astro'
 
 import { getCollection } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
-
-const allFeaturedArticles: CollectionEntry<'featuredArticles'>[] = await getCollection(
-  'featuredArticles',
-  ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true
-  }
-)
-
-allFeaturedArticles.sort(
-  (a: CollectionEntry<'featuredArticles'>, b: CollectionEntry<'featuredArticles'>) =>
-    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-)
 
 export async function getStaticPaths({ paginate }: any) {
   const allArticles: CollectionEntry<'articles'>[] = await getCollection('articles', ({ data }) => {
@@ -87,23 +74,10 @@ const { page }: any = Astro.props
 
       <!-- sidebar -->
       <aside class="h-fit md:grid md:grid-cols-2 md:gap-10 lg:col-span-1 lg:grid-cols-1">
-        <div>
+        <section>
           <About />
-          <hr class="mt-10" />
-
-          <section class="mt-10">
-            <h2 class="text-xl font-bold">Featured Posts</h2>
-
-            <div class="mt-8 grid grid-cols-1 gap-8">
-              {
-                allFeaturedArticles
-                  .slice(0, 5)
-                  .map((featuredArticle) => <FeaturedPost featuredArticle={featuredArticle} />)
-              }
-            </div>
-          </section>
           <hr class="mt-10 md:max-lg:hidden" />
-        </div>
+        </section>
 
         <section class="mt-10 md:mt-2">
           <ContactCard />

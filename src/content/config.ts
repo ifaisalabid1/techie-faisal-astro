@@ -16,20 +16,6 @@ const articles = defineCollection({
     })
 })
 
-const featuredArticles = defineCollection({
-  type: 'content',
-  schema: ({ image }) =>
-    z.object({
-      draft: z.boolean(),
-      title: z.string(),
-      tags: z.array(z.string()),
-      author: z.string(),
-      image: image(),
-      pubDate: z.date()
-    })
-})
-
 export const collections = {
-  articles,
-  featuredArticles
+  articles
 }

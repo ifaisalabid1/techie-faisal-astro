@@ -1,48 +1,46 @@
 <script lang="ts">
-  import Icon from "@iconify/svelte";
-  import { onMount } from "svelte";
-  import { fly } from "svelte/transition";
-  import { ModeWatcher } from "mode-watcher";
-  import ModeToggle from "$lib/components/ModeToggle.svelte";
+  import Icon from '@iconify/svelte'
+  import { onMount } from 'svelte'
+  import { fly } from 'svelte/transition'
+  import { ModeWatcher } from 'mode-watcher'
+  import ModeToggle from '$lib/components/ModeToggle.svelte'
 
   const navItems = [
-    { id: 1, text: "Home", link: "/" },
-    { id: 2, text: "Articles", link: "/articles/" },
-    { id: 3, text: "Article", link: "#" },
-    { id: 4, text: "Travel", link: "#" },
-    { id: 5, text: "Technology", link: "#" },
-  ];
+    { id: 1, text: 'Home', link: '/' },
+    { id: 2, text: 'Articles', link: '/articles/' },
+    { id: 3, text: 'Article', link: '#' },
+    { id: 4, text: 'Travel', link: '#' },
+    { id: 5, text: 'Technology', link: '#' }
+  ]
 
-  let nav = false;
-  let previousScrollY = 0;
-  let isScrollingUp = true;
-  let currentRoute: any;
+  let nav = false
+  let previousScrollY = 0
+  let isScrollingUp = true
+  let currentRoute: any
 
   const handleNav = () => {
-    nav = !nav;
-    nav
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "auto");
-  };
+    nav = !nav
+    nav ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = 'auto')
+  }
 
   onMount(() => {
-    currentRoute = window.location.pathname;
-    window.addEventListener("scroll", handleScroll);
-  });
+    currentRoute = window.location.pathname
+    window.addEventListener('scroll', handleScroll)
+  })
 
   const handleScroll = () => {
-    const currentScrollY = window.scrollY;
+    const currentScrollY = window.scrollY
     if (currentScrollY > previousScrollY && currentScrollY > 150) {
-      isScrollingUp = false;
+      isScrollingUp = false
     } else if (currentScrollY < previousScrollY || currentScrollY <= 150) {
-      isScrollingUp = true;
+      isScrollingUp = true
     }
-    previousScrollY = currentScrollY;
-  };
+    previousScrollY = currentScrollY
+  }
 </script>
 
 <header
-  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-[hsla(240,10%,3.9%,0.9)] backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? "translate-y-0" : "-translate-y-full"}`}
+  class={`bg-[hsla(0,100%,100%,0.9)] dark:bg-[hsla(240,10%,3.9%,0.9)] backdrop-blur-sm backdrop-saturate-200 z-50 shadow border-b w-full sticky top-0 transition-all duration-300 ease-in-out ${isScrollingUp ? 'translate-y-0' : '-translate-y-full'}`}
 >
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
@@ -57,8 +55,8 @@
         <li
           class={`hover:text-lightBlue transition ${
             currentRoute === item.link
-              ? "border-b-2 border-lightBlue"
-              : "border-b-2 border-transparent"
+              ? 'border-b-2 border-lightBlue'
+              : 'border-b-2 border-transparent'
           }`}
         >
           <a href={item.link}>{item.text}</a>
@@ -107,8 +105,7 @@
   <nav class="lg:hidden">
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
-        <a href="/"><img src="/img/logo.svg" alt="" width={55} height={55} /></a
-        >
+        <a href="/"><img src="/img/logo.svg" alt="" width={55} height={55} /></a>
       </div>
 
       <div class="flex gap-2 items-center">
@@ -116,9 +113,7 @@
 
         <button on:click={handleNav} class="cursor-pointer">
           <span class="text-4xl">
-            <Icon
-              icon={nav ? "material-symbols:close" : "material-symbols:menu"}
-            />
+            <Icon icon={nav ? 'material-symbols:close' : 'material-symbols:menu'} />
           </span>
         </button>
       </div>
@@ -130,13 +125,9 @@
         transition:fly={{ duration: 300 }}
       >
         <div class="flex flex-col gap-2">
-          <div
-            class="container flex items-center justify-between gap-6 border-b shadow"
-          >
+          <div class="container flex items-center justify-between gap-6 border-b shadow">
             <div class="text-xl font-bold">
-              <a href="/"
-                ><img src="/img/logo.svg" alt="" width={55} height={55} /></a
-              >
+              <a href="/"><img src="/img/logo.svg" alt="" width={55} height={55} /></a>
             </div>
 
             <div class="flex gap-2 items-center">
@@ -155,8 +146,8 @@
                   href={item.link}
                   class={`flex items-center justify-between gap-4 px-3 py-3 rounded ${
                     currentRoute === item.link
-                      ? "bg-lightBlue text-white"
-                      : "bg-zinc-100 dark:bg-zinc-900"
+                      ? 'bg-lightBlue text-white'
+                      : 'bg-zinc-100 dark:bg-zinc-900'
                   }`}
                 >
                   {item.text}
@@ -169,9 +160,7 @@
           </ul>
         </div>
 
-        <div
-          class="flex justify-between gap-2 items-center container border-t pt-2"
-        >
+        <div class="flex justify-between gap-2 items-center container border-t pt-2">
           <ul class="flex gap-3 items-center flex-wrap my-4">
             <li>
               <a href="">
