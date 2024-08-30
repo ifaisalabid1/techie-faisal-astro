@@ -7,6 +7,7 @@ import { capitalize } from '$lib/functions.ts'
 import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 
 import Paginator from '$lib/components/Paginator.astro'
+import { SITE_URL } from '$lib/const'
 
 export async function getStaticPaths({ paginate }: any) {
   const allArticles = await getCollection('articles', ({ data }) => {
@@ -35,7 +36,7 @@ const { page } = Astro.props
 <BaseLayout
   title={`All ${tag} Articles - Techie Faisal`}
   description=""
-  url={`https:techiefaisal.com/articles/category/${tag}`}
+  url={`${SITE_URL}/articles/category/${tag}/`}
 >
   <main class="container mb-16 mt-8 md:mb-24">
     <Breadcrumb.Root>

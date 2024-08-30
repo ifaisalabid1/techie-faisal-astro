@@ -1,12 +1,9 @@
 ---
+import { SITE_URL } from '$lib/const'
 import BaseLayout from '$lib/layouts/BaseLayout.astro'
 ---
 
-<BaseLayout
-  title="About Us - Techie Faisal"
-  description=""
-  url="https://techiefaisal.com/about-us/"
->
+<BaseLayout title="About Us - Techie Faisal" description="" url={`${SITE_URL}/about-us/`}>
   <main class="container mb-16 mt-12 h-96 max-w-5xl md:mb-24 lg:mt-16">
     <h1 class="text-4xl font-extrabold">About Us</h1>
     <p class="mt-6 dark:text-zinc-300">

@@ -1,11 +1,12 @@
 ---
+import { SITE_URL } from '$lib/const'
 import BaseLayout from '$lib/layouts/BaseLayout.astro'
 ---
 
 <BaseLayout
   title="Privacy Policy - Techie Faisal"
   description=""
-  url="https://techiefaisal.com/privacy-policy/"
+  url={`${SITE_URL}/privacy-policy/`}
 >
   <main class="container mb-16 mt-12 h-96 max-w-5xl md:mb-24 lg:mt-16">
     <h1 class="text-4xl font-extrabold">Privacy Policy</h1>
