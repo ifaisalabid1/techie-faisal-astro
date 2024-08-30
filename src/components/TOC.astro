@@ -68,12 +68,9 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 </nav>
 
 <script>
-  const showTOC = document.querySelector('#showTOC')
-  const TOC = document.querySelector('#table-of-contents')
-
   document.addEventListener('astro:page-load', () => {
-    showTOC?.addEventListener('click', () => {
-      TOC?.classList.toggle('hidden')
+    document.querySelector('#showTOC')?.addEventListener('click', () => {
+      document.querySelector('#table-of-contents')?.classList.toggle('hidden')
     })
   })
 </script>
