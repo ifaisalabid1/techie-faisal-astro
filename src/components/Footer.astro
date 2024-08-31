@@ -26,9 +26,11 @@ const navItems = [
         <ul class="flex flex-col flex-wrap gap-2 font-medium md:flex-row md:gap-x-8 md:gap-y-4">
           {
             navItems.map((item) => (
-              <a href={item.link} class="transition hover:text-lightBlue">
-                <li>{item.text}</li>
-              </a>
+              <li>
+                <a href={item.link} class="transition hover:text-lightBlue">
+                  {item.text}
+                </a>
+              </li>
             ))
           }
         </ul>
