@@ -8,9 +8,9 @@
   const navItems = [
     { id: 1, text: 'Home', link: '/' },
     { id: 2, text: 'Articles', link: '/articles/' },
-    { id: 3, text: 'Article', link: '#' },
-    { id: 4, text: 'Travel', link: '#' },
-    { id: 5, text: 'Technology', link: '#' }
+    { id: 3, text: 'About', link: '/about/' },
+    { id: 4, text: 'Contact', link: '/contact/' },
+    { id: 5, text: 'Privacy Policy', link: '/privacy-policy/' }
   ]
 
   let nav = false

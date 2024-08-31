@@ -6,7 +6,7 @@ const { page } = Astro.props
   <a
     href={page.url.prev}
     class={!page.url.prev
-      ? 'flex items-center gap-1 cursor-not-allowed font-medium'
+      ? 'flex items-center gap-1 font-medium text-muted-foreground'
       : 'flex items-center gap-1 hover:text-lightBlue transition font-medium'}
     aria-label="Go to newer posts"
   >
@@ -27,7 +27,7 @@ const { page } = Astro.props
   <a
     href={page.url.next}
     class={!page.url.next
-      ? 'flex items-center gap-1 cursor-not-allowed font-medium'
+      ? 'flex items-center gap-1 font-medium text-muted-foreground'
       : 'flex items-center gap-1 hover:text-lightBlue transition font-medium'}
     aria-label="Go to older posts"
   >
