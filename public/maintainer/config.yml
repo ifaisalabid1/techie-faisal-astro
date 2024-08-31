@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: ifaisalabid1/techie-faisal
+  name: git-gateway
   branch: main
-  base_url: https://techiefaisal.pages.dev/
-  auth_endpoint: /api/auth
   squash_merges: true
 publish_mode: editorial_workflow
 media_folder: 'src/content/img'
