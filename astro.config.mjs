@@ -3,14 +3,15 @@ import svelte from '@astrojs/svelte'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import { remarkReadingTime } from './remark-reading-time.mjs'
+import cloudflare from '@astrojs/cloudflare'
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://techiefaisal.com/',
   trailingSlash: 'always',
   prefetch: {
     defaultStrategy: 'viewport'
   },
-
   integrations: [
     svelte(),
     tailwind({
@@ -18,8 +19,9 @@ export default defineConfig({
     }),
     sitemap()
   ],
-
   markdown: {
     remarkPlugins: [remarkReadingTime]
-  }
+  },
+  output: 'hybrid',
+  adapter: cloudflare()
 })
