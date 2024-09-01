@@ -2,7 +2,6 @@
 draft: false
 title: "Guardian of the Digital Realm: Web Security"
 description: The best laptops for developers in 2024
-url: https://techiefaisal.com/articles/the-best-laptops-for-developers-in-2024/
 tags:
   - code
   - security

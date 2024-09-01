@@ -10,6 +10,7 @@ import ArticleCard from '$lib/components/ArticleCard.astro'
 import Prose from '$lib/components/Prose.astro'
 import TOC from '$lib/components/TOC.astro'
 import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
+import { SITE_URL } from '$lib/const'
 
 export async function getStaticPaths() {
   const allArticles = await getCollection('articles')
@@ -30,7 +31,7 @@ const relatedArticles = article.data.relatedArticles
 <BaseLayout
   title={`${article.data.title} - Techie Faisal`}
   description={article.data.description}
-  url={article.data.url}
+  url={`${SITE_URL}/articles/${article.slug}/`}
 >
   <main class="container mb-16 mt-8 md:mb-24">
     <Breadcrumb.Root>

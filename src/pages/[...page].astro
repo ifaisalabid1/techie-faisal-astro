@@ -23,7 +23,7 @@ export async function getStaticPaths({ paginate }: any) {
 const { page }: any = Astro.props
 ---
 
-<BaseLayout url={SITE_URL} title="Techie Faisal - Decoding Technology" description="">
+<BaseLayout url={`${SITE_URL}/`} title="Techie Faisal - Decoding Technology" description="">
   <main class="container mb-16 mt-12 md:mb-24 lg:mt-16">
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
       <!-- article card -->
