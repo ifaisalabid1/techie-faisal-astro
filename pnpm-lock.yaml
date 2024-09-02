@@ -23,9 +23,6 @@ importers:
       '@fontsource/inter':
         specifier: ^5.0.20
         version: 5.0.20
-      '@fontsource/karla':
-        specifier: ^5.0.21
-        version: 5.0.21
       astro:
         specifier: ^4.14.2
         version: 4.14.2(@types/node@22.5.0)(rollup@4.21.0)(typescript@5.5.4)
@@ -414,9 +411,6 @@ packages:
 
   '@fontsource/inter@5.0.20':
     resolution: {integrity: sha512-rtw2F7xfM7rJmmnncXnR4ADr5wXsp4GyN1O1jmQJ1PMjAK+bm620/ZkQkeOYOkGoa09OksGinOeMA+Mkt6K9PQ==}
-
-  '@fontsource/karla@5.0.21':
-    resolution: {integrity: sha512-trLa46ilVysnTncutPHzYa2ZUlWJ9YKLJ1QUEUg/epCLvHoNfkRE5xLedkgpHGD3hfi93+Byy05jAGh3UZvD2A==}
 
   '@iconify/svelte@4.0.2':
     resolution: {integrity: sha512-6BSrU85FzGfhQD3bTXpnkCCvBAglEt8T9QednVnXAYm4C+d3464y+pYMzhQNJm5mPId2cuiw+2wXlDflXllHDw==}
@@ -2815,8 +2809,6 @@ snapshots:
   '@floating-ui/utils@0.2.7': {}
 
   '@fontsource/inter@5.0.20': {}
-
-  '@fontsource/karla@5.0.21': {}
 
   '@iconify/svelte@4.0.2(svelte@4.2.18)':
     dependencies:

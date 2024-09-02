@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: The best laptops for developers in 2024
 description: The best laptops for developers in 2024
 tags:

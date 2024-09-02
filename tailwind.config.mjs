@@ -59,8 +59,7 @@ const config = {
       },
 
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        karla: ['Karla', 'sans-serif']
+        inter: ['Inter', 'sans-serif']
       }
     }
   },
