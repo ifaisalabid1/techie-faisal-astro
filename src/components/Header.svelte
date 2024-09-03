@@ -44,31 +44,31 @@
 >
   <!-- Desktop nav  -->
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
-    <div class="text-xl font-bold">
+    <div class="flex items-center gap-12">
       <a href="/" aria-label="Go to Homepage">
         <img src="/img/logo.svg" alt="" width={70} height={70} />
       </a>
+
+      <ul class="flex items-center gap-8 font-medium">
+        {#each navItems as item (item.id)}
+          <li
+            class={`hover:text-lightBlue transition ${
+              currentRoute === item.link
+                ? 'border-b-2 border-lightBlue'
+                : 'border-b-2 border-transparent'
+            }`}
+          >
+            <a href={item.link} aria-label={`Go to ${item.text}`}>{item.text}</a>
+          </li>
+        {/each}
+      </ul>
     </div>
 
-    <ul class="flex items-center gap-8 font-medium">
-      {#each navItems as item (item.id)}
-        <li
-          class={`hover:text-lightBlue transition ${
-            currentRoute === item.link
-              ? 'border-b-2 border-lightBlue'
-              : 'border-b-2 border-transparent'
-          }`}
-        >
-          <a href={item.link} aria-label={`Go to ${item.text}`}>{item.text}</a>
-        </li>
-      {/each}
-    </ul>
-
-    <ul class="flex items-center gap-2.5">
+    <ul class="flex items-center gap-5">
       <li>
         <a href="" class="hover:text-lightBlue transition" aria-label="Facebook Link">
           <span class="text-2xl">
-            <Icon icon="ic:baseline-facebook" />
+            <Icon icon="ri:facebook-fill" />
           </span>
         </a>
       </li>
@@ -82,14 +82,14 @@
       <li>
         <a href="" class="hover:text-lightBlue transition" aria-label="Instagram Link">
           <span class="text-2xl">
-            <Icon icon="ri:instagram-fill" />
+            <Icon icon="mdi:instagram" />
           </span>
         </a>
       </li>
       <li>
         <a href="" class="hover:text-lightBlue transition" aria-label="Reddit Link">
           <span class="text-2xl">
-            <Icon icon="ic:baseline-reddit" />
+            <Icon icon="ri:reddit-line" />
           </span>
         </a>
       </li>
@@ -166,11 +166,11 @@
         </div>
 
         <div class="flex justify-between gap-2 items-center container border-t pt-2">
-          <ul class="flex gap-3 items-center flex-wrap my-4">
+          <ul class="flex gap-5 items-center flex-wrap my-4">
             <li>
               <a href="" aria-label="Facebook Link">
                 <span class="text-3xl">
-                  <Icon icon="ic:baseline-facebook" />
+                  <Icon icon="ri:facebook-fill" />
                 </span>
               </a>
             </li>
@@ -184,14 +184,14 @@
             <li>
               <a href="" aria-label="Instagram Link">
                 <span class="text-3xl">
-                  <Icon icon="ri:instagram-fill" />
+                  <Icon icon="mdi:instagram" />
                 </span>
               </a>
             </li>
             <li>
               <a href="" aria-label="Reddit Link">
                 <span class="text-3xl">
-                  <Icon icon="ic:baseline-reddit" />
+                  <Icon icon="ri:reddit-line" />
                 </span>
               </a>
             </li>
