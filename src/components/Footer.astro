@@ -8,105 +8,120 @@ const navItems = [
 ]
 ---
 
-<footer class="bg-zinc-100 pt-12 dark:bg-zinc-900 xl:pt-16">
-  <div>
-    <div
-      class="container flex flex-col justify-between gap-12 xl:grid xl:grid-cols-3 xl:place-items-end xl:items-center xl:gap-12"
-    >
-      <div>
-        <img src="/img/logo.svg" alt="" width={70} height={70} />
+<footer class="bg-zinc-100 pt-10 text-center dark:bg-zinc-900">
+  <section class="container">
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 lg:gap-10">
+      <a
+        href="#"
+        target="_blank"
+        aria-label="Facebook Link"
+        class="flex items-center gap-2 transition hover:text-lightBlue dark:text-muted-foreground dark:hover:text-lightBlue"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          class="text-xl md:text-lg"
+        >
+          <path
+            fill="currentColor"
+            d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z"
+          ></path>
+        </svg>
 
-        <p class="mt-3 max-w-md font-medium dark:text-zinc-300">
-          Welcome to your go-to destination for fresh perspectives. Dive deep into our rich content
-          pool curated meticulously to enlighten, entertain, and engage readers across the globe.
-        </p>
-      </div>
+        <span class="hidden font-medium uppercase lg:block">Facebook</span>
+      </a>
 
-      <nav>
-        <ul class="flex flex-col flex-wrap gap-2 font-medium md:flex-row md:gap-x-8 md:gap-y-4">
-          {
-            navItems.map((item) => (
-              <li>
-                <a href={item.link} class="transition hover:text-lightBlue">
-                  {item.text}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      <a
+        href="#"
+        target="_blank"
+        aria-label="twitter/X Link"
+        class="flex items-center gap-2 transition hover:text-lightBlue dark:text-muted-foreground dark:hover:text-lightBlue"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          class="text-xl md:text-lg"
+        >
+          <path
+            fill="currentColor"
+            d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"
+          ></path>
+        </svg>
 
-      <div class="flex items-center gap-4">
-        <a href="#" target="_blank" aria-label="Facebook Link">
-          <svg
-            class="text-4xl transition hover:text-lightBlue md:text-3xl"
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"
-            ></path>
-          </svg>
-        </a>
+        <span class="hidden font-medium uppercase lg:block">Twitter</span>
+      </a>
 
-        <a href="#" target="_blank" aria-label="twitter/X Link">
-          <svg
-            class="text-4xl transition hover:text-lightBlue md:text-3xl"
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="M18.205 2.25h3.308l-7.227 8.26l8.502 11.24H16.13l-5.214-6.817L4.95 21.75H1.64l7.73-8.835L1.215 2.25H8.04l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"
-            ></path>
-          </svg>
-        </a>
-        <a href="#" target="_blank" aria-label="Instagram Link">
-          <svg
-            class="text-4xl transition hover:text-lightBlue md:text-3xl"
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="M13.028 2c1.125.003 1.696.009 2.189.023l.194.007c.224.008.445.018.712.03c1.064.05 1.79.218 2.427.465c.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428c.012.266.022.487.03.712l.006.194c.015.492.021 1.063.023 2.188l.001.746v1.31a78.831 78.831 0 0 1-.023 2.188l-.006.194c-.008.225-.018.446-.03.712c-.05 1.065-.22 1.79-.466 2.428a4.883 4.883 0 0 1-1.153 1.772a4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465a72.11 72.11 0 0 1-.712.03l-.194.006c-.493.014-1.064.021-2.189.023l-.746.001h-1.309a78.43 78.43 0 0 1-2.189-.023l-.194-.006a63.036 63.036 0 0 1-.712-.031c-1.064-.05-1.79-.218-2.428-.465a4.889 4.889 0 0 1-1.771-1.153a4.904 4.904 0 0 1-1.154-1.772c-.247-.637-.415-1.363-.465-2.428a74.1 74.1 0 0 1-.03-.712l-.005-.194A79.047 79.047 0 0 1 2 13.028v-2.056a78.82 78.82 0 0 1 .022-2.188l.007-.194c.008-.225.018-.446.03-.712c.05-1.065.218-1.79.465-2.428A4.88 4.88 0 0 1 3.68 3.678a4.897 4.897 0 0 1 1.77-1.153c.638-.247 1.363-.415 2.428-.465c.266-.012.488-.022.712-.03l.194-.006a79 79 0 0 1 2.188-.023zM12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10m0 2a3 3 0 1 1 .001 6a3 3 0 0 1 0-6m5.25-3.5a1.25 1.25 0 0 0 0 2.5a1.25 1.25 0 0 0 0-2.5"
-            ></path>
-          </svg>
-        </a>
-        <a href="#" target="_blank" aria-label="Reddit Link">
-          <svg
-            class="text-4xl transition hover:text-lightBlue md:text-3xl"
-            xmlns="http://www.w3.org/2000/svg"
-            width="1em"
-            height="1em"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="M10.75 13.04c0-.57-.47-1.04-1.04-1.04s-1.04.47-1.04 1.04a1.04 1.04 0 1 0 2.08 0m3.34 2.37c-.45.45-1.41.61-2.09.61s-1.64-.16-2.09-.61a.26.26 0 0 0-.38 0a.26.26 0 0 0 0 .38c.71.71 2.07.77 2.47.77s1.76-.06 2.47-.77a.26.26 0 0 0 0-.38c-.1-.1-.27-.1-.38 0m.2-3.41c-.57 0-1.04.47-1.04 1.04s.47 1.04 1.04 1.04s1.04-.47 1.04-1.04S14.87 12 14.29 12"
-            ></path>
-            <path
-              fill="currentColor"
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m5.8 11.33c.02.14.03.29.03.44c0 2.24-2.61 4.06-5.83 4.06s-5.83-1.82-5.83-4.06c0-.15.01-.3.03-.44c-.51-.23-.86-.74-.86-1.33a1.455 1.455 0 0 1 2.47-1.05c1.01-.73 2.41-1.19 3.96-1.24l.74-3.49c.01-.07.05-.13.11-.16c.06-.04.13-.05.2-.04l2.42.52a1.04 1.04 0 1 1 .93 1.5c-.56 0-1.01-.44-1.04-.99l-2.17-.46l-.66 3.12c1.53.05 2.9.52 3.9 1.24a1.455 1.455 0 1 1 1.6 2.38"
-            ></path>
-          </svg>
-        </a>
-      </div>
+      <a
+        href="#"
+        target="_blank"
+        aria-label="Instagram Link"
+        class="flex items-center gap-2 transition hover:text-lightBlue dark:text-muted-foreground dark:hover:text-lightBlue"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          class="text-xl md:text-lg"
+        >
+          <path
+            fill="currentColor"
+            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+          ></path>
+        </svg>
+
+        <span class="hidden font-medium uppercase lg:block">Instagram</span>
+      </a>
+
+      <a
+        href="#"
+        target="_blank"
+        aria-label="Reddit Link"
+        class="flex items-center gap-2 transition hover:text-lightBlue dark:text-muted-foreground dark:hover:text-lightBlue"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="1em"
+          height="1em"
+          viewBox="0 0 24 24"
+          class="text-xl md:text-lg"
+        >
+          <path
+            fill="currentColor"
+            d="m11.053 7.815l.751-3.536a2 2 0 0 1 2.372-1.54l3.196.68a2 2 0 1 1-.415 1.956l-3.197-.68l-.666 3.135c1.785.137 3.558.73 5.164 1.7A3.192 3.192 0 0 1 23 12.203v.021a3.2 3.2 0 0 1-1.207 2.55l-.008.123c0 3.998-4.45 7.03-9.799 7.03c-5.333 0-9.708-3.024-9.705-6.953l-.01-.181a3.193 3.193 0 0 1 3.454-5.35a11.45 11.45 0 0 1 5.329-1.628m9.285 5.526a1.19 1.19 0 0 0 .662-1.075a1.192 1.192 0 0 0-2.016-.806l-.585.56l-.67-.455c-1.615-1.098-3.452-1.725-5.23-1.764h-1.006c-1.875.028-3.652.6-5.237 1.675l-.664.45l-.583-.55a1.192 1.192 0 1 0-1.315 1.952l.633.29l-.053.695a4 4 0 0 0 .003.584c0 2.71 3.356 5.03 7.708 5.03c4.371 0 7.799-2.336 7.802-5.107a3 3 0 0 0 0-.507l-.052-.672zM6.951 13.5a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0m7 0a1.5 1.5 0 1 1 3 0a1.5 1.5 0 0 1-3 0m-1.985 5.103c-1.397 0-2.766-.37-3.881-1.21a.424.424 0 0 1 .597-.597c.945.693 2.123.99 3.269.99s2.33-.275 3.284-.959a.44.44 0 0 1 .732.206a.47.47 0 0 1-.12.423c-.683.797-2.483 1.147-3.88 1.147"
+          ></path>
+        </svg>
+        <span class="hidden font-medium uppercase lg:block">Reddit</span>
+      </a>
     </div>
-  </div>
 
-  <div class="container mt-6 xl:mt-10">
-    <hr />
-  </div>
+    <div class="mt-8">
+      <div class="h-px w-full bg-zinc-200 dark:bg-muted"></div>
+    </div>
 
-  <div class="container py-6 text-sm xl:py-8">
-    &copy; {new Date().getFullYear()} - Techie Faisal. All Rights Reserved.
-  </div>
+    <nav class="mt-8">
+      <ul class="flex flex-wrap items-center justify-center gap-x-4 gap-y-3 md:gap-x-8 lg:gap-x-10">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.link}
+                class="transition hover:text-lightBlue dark:text-muted-foreground dark:hover:text-lightBlue"
+              >
+                {item.text}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="py-6 text-sm dark:text-muted-foreground">
+      &copy; {new Date().getFullYear()} - Techie Faisal. All Rights Reserved.
+    </div>
+  </section>
 </footer>
