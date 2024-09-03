@@ -169,28 +169,28 @@
           <ul class="flex gap-5 items-center flex-wrap my-4">
             <li>
               <a href="" aria-label="Facebook Link">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ri:facebook-fill" />
                 </span>
               </a>
             </li>
             <li>
               <a href="" aria-label="Twitter/X Link">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ri:twitter-x-fill" />
                 </span>
               </a>
             </li>
             <li>
               <a href="" aria-label="Instagram Link">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="mdi:instagram" />
                 </span>
               </a>
             </li>
             <li>
               <a href="" aria-label="Reddit Link">
-                <span class="text-3xl">
+                <span class="text-2xl">
                   <Icon icon="ri:reddit-line" />
                 </span>
               </a>

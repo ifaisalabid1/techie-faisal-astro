@@ -7,7 +7,7 @@ const { tags } = Astro.props
   {
     tags.map((tag: string) => (
       <span class="rounded bg-zinc-100 px-3 py-1.5 text-sm font-medium text-zinc-600 transition hover:bg-zinc-200 dark:bg-zinc-900 dark:text-foreground dark:hover:bg-zinc-800">
-        <a href={`/articles/category/${tag}/`} aria-label={`Go to ${tag}`}>
+        <a href={`/articles/tag/${tag}/`} aria-label={`Go to ${tag}`}>
           #{capitalize(tag)}
         </a>
       </span>
