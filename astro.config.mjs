@@ -3,7 +3,9 @@ import svelte from '@astrojs/svelte'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import { remarkReadingTime } from './remark-reading-time.mjs'
+import mdx from '@astrojs/mdx'
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://techiefaisal.com/',
   trailingSlash: 'always',
@@ -15,8 +17,10 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false
     }),
-    sitemap()
+    sitemap(),
+    mdx()
   ],
+
   markdown: {
     remarkPlugins: [remarkReadingTime]
   }

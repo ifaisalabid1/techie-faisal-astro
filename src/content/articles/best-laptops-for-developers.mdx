@@ -13,11 +13,22 @@ relatedArticles:
   - elevate-your-mobile-experience
   - world-of-drones
 ---
+
+import { Picture } from 'astro:assets'
+import image3 from '$lib/content/img/image3.png'
+
 In the ever-evolving landscape of technology, developers require laptops that can keep up with their demands for coding, debugging, and testing. As we step into 2024, the search for the perfect laptop for developers continues. Let's explore some of the top contenders for the title of "Best Laptops for Developers" this year.
 
 ## MacBook Pro (M2X Chip)
 
-![test](../img/image3.png)
+<Picture
+  src={image3}
+  alt=""
+  class="rounded-lg"
+  formats={['avif', 'webp']}
+  widths={[375, 425, 768, 1024, image3.width]}
+  sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 768px, (max-width: 1440px) 1024px ${image3.width}px`}
+/>
 
 | Month    | Savings | Test   | test   | test |
 | -------- | ------- | ------ | ------ | ---- |
@@ -41,7 +52,7 @@ For developers who are also gamers or multimedia enthusiasts, the Razer Blade 15
 
 ## System76 Oryx Pro
 
-System76 specializes in Linux laptops, and the Oryx Pro is tailored for developers. Running on Pop!_OS, it offers a Linux-based environment with great compatibility for software development tools. The laptop is customizable, allowing you to choose the CPU, RAM, and storage options that suit your needs.
+System76 specializes in Linux laptops, and the Oryx Pro is tailored for developers. Running on Pop!\_OS, it offers a Linux-based environment with great compatibility for software development tools. The laptop is customizable, allowing you to choose the CPU, RAM, and storage options that suit your needs.
 
 ## ASUS ROG Zephyrus G14
 
@@ -61,7 +72,7 @@ Lenovo's ThinkPad series is renowned for its durability and performance. The Thi
 
 For developers who are also gamers or multimedia enthusiasts, the Razer Blade 15 is a top pick. It boasts powerful Nvidia graphics, a fast refresh rate display, and robust performance for coding and gaming alike. Its RGB keyboard adds a touch of style to your workspace.
 
-System76 specializes in Linux laptops, and the Oryx Pro is tailored for developers. Running on Pop!_OS, it offers a Linux-based environment with great compatibility for software development tools. The laptop is customizable, allowing you to choose the CPU, RAM, and storage options that suit your needs.
+System76 specializes in Linux laptops, and the Oryx Pro is tailored for developers. Running on Pop!\_OS, it offers a Linux-based environment with great compatibility for software development tools. The laptop is customizable, allowing you to choose the CPU, RAM, and storage options that suit your needs.
 
 If you're a developer who dabbles in game development or graphics-intensive tasks, the ASUS ROG Zephyrus G14 is worth considering. It packs a powerful AMD Ryzen processor and an Nvidia RTX GPU into a compact form factor. It's portable, yet it can handle demanding development tasks and gaming with ease.
 
