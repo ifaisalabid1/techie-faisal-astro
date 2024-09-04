@@ -16,7 +16,7 @@ const { article } = Astro.props
           class="rounded-lg transition group-hover:scale-105 group-hover:brightness-125"
           formats={['avif', 'webp']}
           widths={[375, 425, 540, 720, article.data.image.width]}
-          sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 540px, (max-width: 1440px) 720px, ${article.data.image.width}px`}
+          sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 540px, (max-width: 2560px) 720px, ${article.data.image.width}px`}
         />
       </div>
 

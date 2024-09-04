@@ -94,8 +94,8 @@ const relatedArticles = article.data.relatedArticles
           alt=""
           class="rounded-lg"
           formats={['avif', 'webp']}
-          widths={[375, 425, 768, 1400]}
-          sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 768px, (max-width: 1440px) 1400px`}
+          widths={[375, 425, 768, 1024, 1400, article.data.image.width]}
+          sizes={`(max-width: 375px) 375px, (max-width: 425px) 425px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 2560px) 1400px, ${article.data.image.width}px`}
         />
 
         <div class="my-8 md:my-12">
