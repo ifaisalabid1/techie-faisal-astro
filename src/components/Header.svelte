@@ -168,28 +168,28 @@
         <div class="flex justify-between gap-2 items-center container border-t pt-2">
           <ul class="flex gap-5 items-center flex-wrap my-4">
             <li>
-              <a href="" aria-label="Facebook Link">
+              <a href="" aria-label="Facebook Link" class="hover:text-lightBlue">
                 <span class="text-2xl">
                   <Icon icon="ri:facebook-fill" />
                 </span>
               </a>
             </li>
             <li>
-              <a href="" aria-label="Twitter/X Link">
+              <a href="" aria-label="Twitter/X Link" class="hover:text-lightBlue">
                 <span class="text-2xl">
                   <Icon icon="ri:twitter-x-fill" />
                 </span>
               </a>
             </li>
             <li>
-              <a href="" aria-label="Instagram Link">
+              <a href="" aria-label="Instagram Link" class="hover:text-lightBlue">
                 <span class="text-2xl">
                   <Icon icon="mdi:instagram" />
                 </span>
               </a>
             </li>
             <li>
-              <a href="" aria-label="Reddit Link">
+              <a href="" aria-label="Reddit Link" class="hover:text-lightBlue">
                 <span class="text-2xl">
                   <Icon icon="ri:reddit-line" />
                 </span>
