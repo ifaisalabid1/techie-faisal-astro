@@ -12,7 +12,7 @@ const { article } = Astro.props
       <div class="overflow-hidden rounded-lg">
         <Picture
           src={article.data.image}
-          alt=""
+          alt={article.data.title}
           class="rounded-lg transition group-hover:scale-105 group-hover:brightness-125"
           formats={['avif', 'webp']}
           widths={[375, 425, 540, 720, article.data.image.width]}

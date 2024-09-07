@@ -2,11 +2,24 @@
 import Social from '$lib/components/Social.astro'
 import { SITE_URL } from '$lib/const'
 import BaseLayout from '$lib/layouts/BaseLayout.astro'
+import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 ---
 
 <BaseLayout title="About - Techie Faisal" description="" url={`${SITE_URL}/about/`}>
-  <main class="container mb-16 mt-12 h-96 max-w-5xl md:mb-24 lg:mt-16">
-    <h1 class="text-4xl font-extrabold">About</h1>
+  <main class="container mb-16 mt-8 h-96 max-w-5xl md:mb-24">
+    <Breadcrumb.Root>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>About</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
+    </Breadcrumb.Root>
+
+    <h1 class="mt-8 text-4xl font-bold xl:mt-12">About</h1>
     <p class="mt-6 dark:text-zinc-300">
       My name is Faisal. I am a self-taught Web Developer. From a young age, I have been passionate
       about the latest gadgets. Through this blog, I want to help you make your tech purchasing

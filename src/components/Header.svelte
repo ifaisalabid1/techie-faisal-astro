@@ -46,7 +46,7 @@
   <nav class="container items-center justify-between hidden gap-8 lg:flex">
     <div class="flex items-center gap-12">
       <a href="/" aria-label="Go to Homepage">
-        <img src="/img/logo.svg" alt="" width={70} height={70} />
+        <img src="/img/logo.svg" alt="Techie Faisal Logo" width={70} height={70} />
       </a>
 
       <ul class="flex items-center gap-8 font-medium">
@@ -106,7 +106,7 @@
     <div class="container flex items-center justify-between gap-6">
       <div class="text-xl font-bold">
         <a href="/" aria-label="Go to homepage"
-          ><img src="/img/logo.svg" alt="" width={55} height={55} /></a
+          ><img src="/img/logo.svg" alt="Techie Faisal Logo" width={55} height={55} /></a
         >
       </div>
 
@@ -130,7 +130,7 @@
           <div class="container flex items-center justify-between gap-6 border-b shadow">
             <div class="text-xl font-bold">
               <a href="/" aria-label="Go to homepage"
-                ><img src="/img/logo.svg" alt="" width={55} height={55} /></a
+                ><img src="/img/logo.svg" alt="Techie Faisal Logo" width={55} height={55} /></a
               >
             </div>
 

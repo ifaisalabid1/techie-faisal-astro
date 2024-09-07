@@ -91,7 +91,7 @@ const relatedArticles = article.data.relatedArticles
       <div class:list={['lg:col-span-2', { 'border-b pb-12': relatedArticles.length > 0 }]}>
         <Picture
           src={article.data.image}
-          alt=""
+          alt={article.data.title}
           class="rounded-lg"
           formats={['avif', 'webp']}
           widths={[375, 425, 768, 1024, 1400, article.data.image.width]}

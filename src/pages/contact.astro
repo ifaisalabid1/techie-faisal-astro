@@ -2,11 +2,24 @@
 import Social from '$lib/components/Social.astro'
 import { SITE_URL } from '$lib/const'
 import BaseLayout from '$lib/layouts/BaseLayout.astro'
+import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 ---
 
 <BaseLayout title="Contact - Techie Faisal" description="" url={`${SITE_URL}/contact/`}>
-  <main class="container mb-16 mt-12 h-96 max-w-5xl md:mb-24 lg:mt-16">
-    <h1 class="text-4xl font-extrabold">Contact</h1>
+  <main class="container mb-16 mt-8 h-96 max-w-5xl md:mb-24">
+    <Breadcrumb.Root>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>Contact</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
+    </Breadcrumb.Root>
+
+    <h1 class="mt-8 text-4xl font-bold xl:mt-12">Contact</h1>
     <p class="mt-6 dark:text-zinc-300">
       If you have any suggestions, questions, or just something nice to say, send us an email. We'll
       get back to you as soon as we can.

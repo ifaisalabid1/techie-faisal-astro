@@ -1,6 +1,7 @@
 ---
 import { SITE_URL } from '$lib/const'
 import BaseLayout from '$lib/layouts/BaseLayout.astro'
+import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js'
 ---
 
 <BaseLayout
@@ -8,9 +9,21 @@ import BaseLayout from '$lib/layouts/BaseLayout.astro'
   description=""
   url={`${SITE_URL}/privacy-policy/`}
 >
-  <main class="container mb-16 mt-12 max-w-5xl md:mb-24 lg:mt-16">
-    <div class="prose prose-zinc max-w-none dark:prose-invert">
-      <h1 class="text-4xl font-extrabold">Privacy Policy</h1>
+  <main class="container mb-16 mt-8 max-w-5xl md:mb-24">
+    <Breadcrumb.Root>
+      <Breadcrumb.List>
+        <Breadcrumb.Item>
+          <Breadcrumb.Link href="/">Home</Breadcrumb.Link>
+        </Breadcrumb.Item>
+        <Breadcrumb.Separator />
+        <Breadcrumb.Item>
+          <Breadcrumb.Page>Privacy Policy</Breadcrumb.Page>
+        </Breadcrumb.Item>
+      </Breadcrumb.List>
+    </Breadcrumb.Root>
+
+    <div class="prose prose-zinc mt-8 max-w-none dark:prose-invert xl:mt-12">
+      <h1 class="text-4xl font-bold">Privacy Policy</h1>
 
       <p>Last updated: September 04, 2024</p>
       <p>
