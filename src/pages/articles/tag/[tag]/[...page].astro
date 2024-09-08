@@ -34,7 +34,7 @@ const { page } = Astro.props
 ---
 
 <BaseLayout
-  title={`All ${tag} Articles - Techie Faisal`}
+  title={`All ${capitalize(tag)} Articles - Techie Faisal`}
   description=""
   url={`${SITE_URL}/articles/tag/${tag}/`}
 >
