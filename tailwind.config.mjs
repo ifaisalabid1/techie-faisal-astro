@@ -59,7 +59,7 @@ const config = {
       },
 
       fontFamily: {
-        inter: ['Inter', 'sans-serif']
+        dmSans: ['DM Sans', 'sans-serif']
       }
     }
   },
