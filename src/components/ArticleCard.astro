@@ -8,7 +8,7 @@ const { article } = Astro.props
 
 <div>
   <div class="group">
-    <a href={`/articles/${article.slug}/`} aria-label={`Go to ${article.data.title}`}>
+    <a href={`/articles/${article.slug}`} aria-label={`Go to ${article.data.title}`}>
       <div class="overflow-hidden rounded-lg">
         <Picture
           src={article.data.image}
