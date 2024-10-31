@@ -9,9 +9,12 @@ import type { CollectionEntry } from 'astro:content'
 import { SITE_URL } from '$lib/const'
 
 export async function getStaticPaths({ paginate }: any) {
-  const allArticles: CollectionEntry<'articles'>[] = await getCollection('articles', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true
-  })
+  const allArticles: CollectionEntry<'articles'>[] = await getCollection(
+    'articles',
+    ({ data }: any) => {
+      return import.meta.env.PROD ? data.draft !== true : true
+    }
+  )
   allArticles.sort(
     (a: CollectionEntry<'articles'>, b: CollectionEntry<'articles'>) =>
       b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -23,7 +26,13 @@ export async function getStaticPaths({ paginate }: any) {
 const { page }: any = Astro.props
 ---
 
-<BaseLayout url={`${SITE_URL}/`} title="Techie Faisal - Decoding Technology" description="">
+<BaseLayout
+  url={`${SITE_URL}`}
+  title="Techie Faisal - Decoding Technology"
+  description=`My name is Faisal. I am a self-taught Web Developer. From a young age, I have been passionate
+      about the latest gadgets. Through this blog, I want to help you make your tech purchasing
+      decisions better and more efficient.`
+>
   <main class="container mb-16 mt-12 md:mb-24 lg:mt-16">
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
       <!-- article card -->
