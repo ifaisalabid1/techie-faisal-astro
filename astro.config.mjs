@@ -8,7 +8,7 @@ import mdx from '@astrojs/mdx'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://techiefaisal.com',
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   prefetch: {
     defaultStrategy: 'viewport'
   },
