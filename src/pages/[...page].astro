@@ -43,44 +43,64 @@ const { page }: any = Astro.props
         <!-- /article card -->
 
         <!-- paginator -->
-        <div class="mx-auto mt-16 flex items-center justify-between space-x-10 md:mt-20 lg:mt-24">
-          <a
-            href={page.url.prev}
-            class={!page.url.prev
-              ? 'flex items-center gap-1 text-muted-foreground font-medium'
-              : 'flex items-center gap-1 hover:text-lightBlue transition font-medium'}
-            aria-label="Go to newer posts"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z"></path>
-            </svg>
-            Newer Posts
-          </a>
+        {
+          page.data.length > 12 && (
+            <div class="mx-auto mt-16 flex items-center justify-between space-x-10 md:mt-20 lg:mt-24">
+              <a
+                href={page.url.prev}
+                class={
+                  !page.url.prev
+                    ? 'flex items-center gap-1 font-medium text-muted-foreground'
+                    : 'flex items-center gap-1 font-medium transition hover:text-lightBlue'
+                }
+                aria-label="Go to newer posts"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z"
+                  />
+                </svg>
+                Newer Posts
+              </a>
 
-          <div class="hidden text-zinc-800 dark:text-muted-foreground md:block">
-            Page
-            {page.currentPage}
-            of
-            {page.lastPage}
-          </div>
+              <div class="hidden text-zinc-800 dark:text-muted-foreground md:block">
+                Page
+                {page.currentPage}
+                of
+                {page.lastPage}
+              </div>
 
-          <a
-            href={page.url.next}
-            class={!page.url.next
-              ? 'flex items-center gap-1 text-muted-foreground font-medium'
-              : 'flex items-center gap-1 hover:text-lightBlue transition font-medium'}
-            aria-label="Go to older posts"
-          >
-            Older Posts
-            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"></path>
-            </svg>
-          </a>
-        </div>
+              <a
+                href={page.url.next}
+                class={
+                  !page.url.next
+                    ? 'flex items-center gap-1 font-medium text-muted-foreground'
+                    : 'flex items-center gap-1 font-medium transition hover:text-lightBlue'
+                }
+                aria-label="Go to older posts"
+              >
+                Older Posts
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
+                  />
+                </svg>
+              </a>
+            </div>
+          )
+        }
         <!-- /paginator -->
       </section>
 

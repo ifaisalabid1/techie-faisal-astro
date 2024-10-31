@@ -46,7 +46,7 @@ const { page } = Astro.props
         </Breadcrumb.Item>
         <Breadcrumb.Separator />
         <Breadcrumb.Item>
-          <Breadcrumb.Link href="/articles">Articles</Breadcrumb.Link>
+          <Breadcrumb.Link href="/articles/">Articles</Breadcrumb.Link>
         </Breadcrumb.Item>
         <Breadcrumb.Separator />
         <Breadcrumb.Item>
@@ -61,8 +61,12 @@ const { page } = Astro.props
       {(page as any).data.map((article: any) => <ArticleCard article={article} />)}
     </div>
 
-    <div class="mt-16 md:mt-20 lg:mt-24">
-      <Paginator page={page} />
-    </div>
+    {
+      page.data.length > 15 && (
+        <div class="mt-16 md:mt-20 lg:mt-24">
+          <Paginator page={page} />
+        </div>
+      )
+    }
   </main>
 </BaseLayout>
