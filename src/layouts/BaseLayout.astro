@@ -10,7 +10,7 @@ import Header from '$lib/components/Header.svelte'
 import Footer from '$lib/components/Footer.astro'
 import LoadingIndicator from 'astro-loading-indicator/component'
 
-const { title, url, description, ogType, image } = Astro.props
+const { title, url, description, ogType, ogImage } = Astro.props
 ---
 
 <script is:inline>
@@ -45,7 +45,7 @@ const { title, url, description, ogType, image } = Astro.props
     <meta name="rating" content="general" />
     <meta property="og:type" content={ogType || 'website'} />
     <meta property="og:url" content={url} />
-    <meta property="og:image" content={image || '/favicon.svg'} />
+    <meta property="og:image" content={ogImage || 'https://techiefaisal.com/favicon.svg'} />
     <meta name="contact" content="contact@techiefaisal.com" />
     <meta name="reply-to" content="contact@techiefaisal.com" />
 
