@@ -2,12 +2,7 @@
 import '$lib/styles/app.css'
 
 // font
-import '@fontsource/dm-sans/400.css'
-import '@fontsource/dm-sans/500.css'
-import '@fontsource/dm-sans/600.css'
-import '@fontsource/dm-sans/700.css'
-import '@fontsource/dm-sans/800.css'
-import '@fontsource/dm-sans/900.css'
+import '@fontsource-variable/open-sans'
 // /font
 
 import { ViewTransitions } from 'astro:transitions'
@@ -15,7 +10,7 @@ import Header from '$lib/components/Header.svelte'
 import Footer from '$lib/components/Footer.astro'
 import LoadingIndicator from 'astro-loading-indicator/component'
 
-const { title, url, description } = Astro.props
+const { title, url, description, ogType, image } = Astro.props
 ---
 
 <script is:inline>
@@ -48,14 +43,15 @@ const { title, url, description } = Astro.props
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="language" content="English" />
     <meta name="rating" content="general" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType || 'website'} />
     <meta property="og:url" content={url} />
+    <meta property="og:image" content={image || '/favicon.svg'} />
     <meta name="contact" content="contact@techiefaisal.com" />
     <meta name="reply-to" content="contact@techiefaisal.com" />
 
     <meta name="description" content={description} />
-    <meta name="og:title" content={title} />
-    <meta name="og:description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta name="”robots”" content="index, follow" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.svg" />

@@ -10,6 +10,7 @@ const articles = defineCollection({
       tags: z.array(z.string().toLowerCase()),
       author: z.string(),
       image: image(),
+      ogImage: z.string(),
       pubDate: z.date(),
       relatedArticles: z.array(reference('articles')).optional()
     })

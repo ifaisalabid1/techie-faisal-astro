@@ -78,6 +78,6 @@
   }
 
   body {
-    @apply bg-background font-dmSans text-foreground antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 }
