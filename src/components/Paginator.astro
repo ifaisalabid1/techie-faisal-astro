@@ -2,44 +2,53 @@
 const { page } = Astro.props
 ---
 
-<section class='mx-auto flex max-w-3xl items-center justify-between space-x-10'>
-  <button disabled={!page.url.prev}>
-    <a
-      href={page.url.prev}
-      class={!page.url.prev
-        ? 'flex items-center gap-1 font-medium text-muted-foreground'
-        : 'flex items-center gap-1 hover:text-lightBlue transition font-medium'}
-      aria-label='Go to newer posts'
-    >
-      <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'>
-        <path fill='currentColor' d='M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z'
-        ></path>
-      </svg>
-      Newer Posts
-    </a>
-  </button>
+<section
+  class="mx-auto flex max-w-3xl items-center justify-between space-x-10 md:grid md:grid-cols-3"
+>
+  <div>
+    {
+      page.url.prev && (
+        <a
+          href={page.url.prev}
+          class="flex items-center gap-1 font-medium transition hover:text-lightBlue"
+          aria-label="Go to newer posts"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M20 11v2H8l5.5 5.5l-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5L8 11z"
+            />
+          </svg>
+          Newer Posts
+        </a>
+      )
+    }
+  </div>
 
-  <div class='hidden text-zinc-800 dark:text-muted-foreground md:block'>
+  <div class="hidden text-zinc-800 dark:text-muted-foreground md:block md:justify-self-center">
     Page
     {page.currentPage}
     of
     {page.lastPage}
   </div>
 
-  <button disabled={!page.url.next}>
-    <a
-      href={page.url.next}
-      class={!page.url.next
-        ? 'flex items-center gap-1 font-medium text-muted-foreground'
-        : 'flex items-center gap-1 hover:text-lightBlue transition font-medium'}
-      aria-label='Go to older posts'
-    >
-      Older Posts
-      <svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'>
-        <path
-          fill='currentColor'
-          d='M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z'></path>
-      </svg>
-    </a>
-  </button>
+  <div class="md:justify-self-end">
+    {
+      page.url.next && (
+        <a
+          href={page.url.next}
+          class="flex items-center gap-1 font-medium transition hover:text-lightBlue"
+          aria-label="Go to older posts"
+        >
+          Older Posts
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5L16 11z"
+            />
+          </svg>
+        </a>
+      )
+    }
+  </div>
 </section>
