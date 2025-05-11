@@ -54,8 +54,6 @@ const { title, url, description, ogType, ogImage } = Astro.props
     <meta property="og:description" content={description} />
     <meta name="”robots”" content="index, follow" />
 
-    <meta name="google-adsense-account" content="ca-pub-5253758564264517" />
-
     <link rel="icon" type="image/x-icon" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -66,11 +64,6 @@ const { title, url, description, ogType, ogImage } = Astro.props
 
     <LoadingIndicator color="#0d6eff" height="2.5px" />
     <ViewTransitions />
-
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5253758564264517"
-      crossorigin="anonymous"></script>
   </head>
   <body>
     <Header client:load />
